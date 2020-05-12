@@ -29,10 +29,10 @@ class CatCardViewController: UIViewController {
         let card = sender.view!
         let point = sender.translation(in: view)
         let xFromCenter = card.center.x - view.center.x
-        
+        let scale = min(80/abs(xFromCenter), 1)
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
         
-        card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor)
+        card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor).scaledBy(x: scale, y: scale)
         
         if xFromCenter > 0 {
             rateImage.image = UIImage(named: "like")
