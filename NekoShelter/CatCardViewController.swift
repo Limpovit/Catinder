@@ -9,7 +9,13 @@
 import UIKit
 
 class CatCardViewController: UIViewController {
-
+    
+    @IBOutlet weak var cardView: UIView!
+    @IBOutlet weak var catName: UILabel!
+    @IBOutlet weak var catBreed: UILabel!
+    @IBOutlet weak var catImageView: UIImageView!
+    @IBOutlet weak var rateImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,14 +23,26 @@ class CatCardViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
+        let card = sender.view!
+        let point = sender.translation(in: view)
+        let xFromCenter = card.center.x - view.center.x
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        if xFromCenter > 0 {
+            rateImage.image = UIImage(named: "like")
+        } else {
+            rateImage.image = UIImage(named: "unlike")
+        }
+        rateImage.alpha = abs(xFromCenter) / view.center.x
+        
+        if sender.state == UIGestureRecognizer.State.ended {
+        UIView.animate(withDuration: 0.2) {
+            card.center = self.view.center
+            self.rateImage.alpha = 0
+        }
+        }
     }
-    */
+    
 
 }
