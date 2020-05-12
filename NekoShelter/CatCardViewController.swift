@@ -37,12 +37,35 @@ class CatCardViewController: UIViewController {
         rateImage.alpha = abs(xFromCenter) / view.center.x
         
         if sender.state == UIGestureRecognizer.State.ended {
-        UIView.animate(withDuration: 0.2) {
-            card.center = self.view.center
-            self.rateImage.alpha = 0
-        }
+            
+            if card.center.x < 75 {
+                UIView.animate(withDuration: 0.3) {
+                       card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
+                    card.alpha = 0
+                   }
+                return
+            } else if card.center.x > view.frame.width - 75 {
+                UIView.animate(withDuration: 0.3) {
+                    card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
+                    card.alpha = 0
+                }
+                return
+            }
+            
+        resetCard()
         }
     }
     
-
+    @IBAction func reset(_ sender: UIButton) {
+        resetCard()
+    }
+    
+    func resetCard(){
+        UIView.animate(withDuration: 0.2) {
+            self.cardView.center = self.view.center
+            self.rateImage.alpha = 0
+            self.cardView.alpha = 1
+        }
+    }
+    
 }
