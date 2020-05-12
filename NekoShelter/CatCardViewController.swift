@@ -16,9 +16,11 @@ class CatCardViewController: UIViewController {
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var rateImage: UIImageView!
     
+    var divisor: CGFloat!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        divisor = (view.frame.width / 2) / 0.61
         // Do any additional setup after loading the view.
     }
     
@@ -27,7 +29,10 @@ class CatCardViewController: UIViewController {
         let card = sender.view!
         let point = sender.translation(in: view)
         let xFromCenter = card.center.x - view.center.x
+        
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        
+        card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor)
         
         if xFromCenter > 0 {
             rateImage.image = UIImage(named: "like")
@@ -65,6 +70,7 @@ class CatCardViewController: UIViewController {
             self.cardView.center = self.view.center
             self.rateImage.alpha = 0
             self.cardView.alpha = 1
+            self.cardView.transform = CGAffineTransform.identity
         }
     }
     
