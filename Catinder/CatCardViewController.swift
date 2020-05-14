@@ -10,9 +10,8 @@ import UIKit
 
 class CatCardViewController: UIViewController {
     
-    @IBOutlet weak var cardView: UIView!
-    @IBOutlet weak var catName: UILabel!
-    @IBOutlet weak var catBreed: UILabel!
+    @IBOutlet weak var card: CardView!
+    
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var rateImage: UIImageView!
     
@@ -25,8 +24,8 @@ class CatCardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cardView.layer.cornerRadius = 20
-        
+       
+        card.layer.cornerRadius = 20
         
         divisor = (view.frame.width / 2) / 0.61
         
@@ -43,11 +42,9 @@ class CatCardViewController: UIViewController {
             }
         }
     }
-    
-    var image = UIImage()
-    
-    @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
-        let card = sender.view!
+     
+    @IBAction func testPan(_ sender: UIPanGestureRecognizer) {
+        let card = sender.view! as! CardView
         let point = sender.translation(in: view)
         let xFromCenter = card.center.x - view.center.x
         let scale = min(80/abs(xFromCenter), 1)
@@ -56,50 +53,43 @@ class CatCardViewController: UIViewController {
         card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor).scaledBy(x: scale, y: scale)
         
         if xFromCenter > 0 {
-            rateImage.image = UIImage(named: "like")
+            card.emojiImageView.image = UIImage(named: "like")
         } else {
-            rateImage.image = UIImage(named: "unlike")
+            card.emojiImageView.image = UIImage(named: "unlike")
         }
-        rateImage.alpha = abs(xFromCenter) / view.center.x
+        card.emojiImageView.alpha = abs(xFromCenter) / view.center.x
         
         if sender.state == UIGestureRecognizer.State.ended {
-            
+            self.resetCard(view: card)
             if card.center.x < 75 {
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
-                    self.loadNextCard()
+                    self.resetCard(view: card)
                 }
                 return
             } else if card.center.x > view.frame.width - 75 {
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
-                    self.loadNextCard()
+                    self.resetCard(view: card)
                 }
                 return
             }
-            
-            resetCard()
         }
     }
     
     @IBAction func reset(_ sender: UIButton) {
-        resetCard()
         
     }
+
     
-    func loadNextCard(){
-        resetCard()
-        
-    }
-    
-    func resetCard(){
+    func resetCard(view: CardView){
         UIView.animate(withDuration: 0.2) {
-            self.cardView.center = self.view.center
-            self.rateImage.alpha = 0
-            self.cardView.alpha = 1
-            self.cardView.transform = CGAffineTransform.identity
+            view.center = self.view.center
+            view.emojiImageView.alpha = 0
+            view.alpha = 1
+            view.transform = CGAffineTransform.identity
             
         }
     }
@@ -135,7 +125,8 @@ class CatCardViewController: UIViewController {
         if let data = try? Data(contentsOf: catURL) {
             let image = UIImage(data: data)
             DispatchQueue.main.async {
-                self.catImageView.image = image
+                self.card.catImageView.image = image
+            
             }
         }
     }

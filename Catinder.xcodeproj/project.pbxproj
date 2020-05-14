@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC55246D32AA008B1B9E /* DetailViewController.swift */; };
+		7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC59246D4D1C008B1B9E /* CardView.swift */; };
+		7B47CC5C246D5355008B1B9E /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B47CC5B246D5355008B1B9E /* CardView.xib */; };
 		7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF749246AA9850026320D /* AppDelegate.swift */; };
 		7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF74B246AA9850026320D /* SceneDelegate.swift */; };
 		7B4DF751246AA9850026320D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF74F246AA9850026320D /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 
 /* Begin PBXFileReference section */
 		7B47CC55246D32AA008B1B9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		7B47CC59246D4D1C008B1B9E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		7B47CC5B246D5355008B1B9E /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
 		7B4DF746246AA9850026320D /* Catinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4DF749246AA9850026320D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B4DF74B246AA9850026320D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				7B47CC58246D3ADB008B1B9E /* App */,
 				7B47CC57246D3AA2008B1B9E /* Model */,
 				7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */,
+				7B47CC59246D4D1C008B1B9E /* CardView.swift */,
+				7B47CC5B246D5355008B1B9E /* CardView.xib */,
 				7B689DC5246C5D3300C84B05 /* Bestiary */,
 				7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */,
 				7B4DF74F246AA9850026320D /* Main.storyboard */,
@@ -166,6 +172,7 @@
 			files = (
 				7B4DF756246AA9850026320D /* LaunchScreen.storyboard in Resources */,
 				7B4DF753246AA9850026320D /* Assets.xcassets in Resources */,
+				7B47CC5C246D5355008B1B9E /* CardView.xib in Resources */,
 				7B4DF751246AA9850026320D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */,
+				7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */,
 				7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */,
 				7BB1DA0E246AF52E002AAE4D /* BestiaryViewController.swift in Sources */,
 				7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */,
