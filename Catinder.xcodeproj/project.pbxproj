@@ -10,7 +10,6 @@
 		7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC55246D32AA008B1B9E /* DetailViewController.swift */; };
 		7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF749246AA9850026320D /* AppDelegate.swift */; };
 		7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF74B246AA9850026320D /* SceneDelegate.swift */; };
-		7B4DF74E246AA9850026320D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF74D246AA9850026320D /* ViewController.swift */; };
 		7B4DF751246AA9850026320D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF74F246AA9850026320D /* Main.storyboard */; };
 		7B4DF753246AA9850026320D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF752246AA9850026320D /* Assets.xcassets */; };
 		7B4DF756246AA9850026320D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF754246AA9850026320D /* LaunchScreen.storyboard */; };
@@ -26,7 +25,6 @@
 		7B4DF746246AA9850026320D /* Catinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4DF749246AA9850026320D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B4DF74B246AA9850026320D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7B4DF74D246AA9850026320D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7B4DF750246AA9850026320D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7B4DF752246AA9850026320D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B4DF755246AA9850026320D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +47,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7B47CC57246D3AA2008B1B9E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7B689DC3246C09CF00C84B05 /* Cats.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7B47CC58246D3ADB008B1B9E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				7B4DF749246AA9850026320D /* AppDelegate.swift */,
+				7B4DF74B246AA9850026320D /* SceneDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		7B4DF73D246AA9850026320D = {
 			isa = PBXGroup;
 			children = (
@@ -68,17 +83,15 @@
 		7B4DF748246AA9850026320D /* Catinder */ = {
 			isa = PBXGroup;
 			children = (
-				7B4DF749246AA9850026320D /* AppDelegate.swift */,
-				7B4DF74B246AA9850026320D /* SceneDelegate.swift */,
-				7B4DF74D246AA9850026320D /* ViewController.swift */,
+				7B47CC58246D3ADB008B1B9E /* App */,
+				7B47CC57246D3AA2008B1B9E /* Model */,
+				7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */,
+				7B689DC5246C5D3300C84B05 /* Bestiary */,
+				7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */,
 				7B4DF74F246AA9850026320D /* Main.storyboard */,
 				7B4DF752246AA9850026320D /* Assets.xcassets */,
 				7B4DF754246AA9850026320D /* LaunchScreen.storyboard */,
 				7B4DF757246AA9850026320D /* Info.plist */,
-				7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */,
-				7B689DC5246C5D3300C84B05 /* Bestiary */,
-				7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */,
-				7B689DC3246C09CF00C84B05 /* Cats.swift */,
 			);
 			path = Catinder;
 			sourceTree = "<group>";
@@ -168,7 +181,6 @@
 				7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */,
 				7BB1DA0E246AF52E002AAE4D /* BestiaryViewController.swift in Sources */,
 				7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */,
-				7B4DF74E246AA9850026320D /* ViewController.swift in Sources */,
 				7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */,
 				7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */,
 				7BB1DA10246AF579002AAE4D /* FavoritesViewController.swift in Sources */,
