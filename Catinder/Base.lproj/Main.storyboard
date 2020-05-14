@@ -132,6 +132,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do you like this kitty?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nis-X2-Mxn">
+                                <rect key="frame" x="52" y="100" width="312" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYU-73-LWG">
                                 <rect key="frame" x="188" y="73" width="39" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -140,42 +147,75 @@
                                     <action selector="reset:" destination="K1t-MR-zjg" eventType="touchUpInside" id="Al5-zC-wzg"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DM2-Tc-yVi" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DM2-Tc-yVi" userLabel="Card 1" customClass="CardView" customModule="Catinder" customModuleProvider="target">
                                 <rect key="frame" x="57" y="223" width="300" height="450"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="5Ah-TH-J0x"/>
                                     <constraint firstAttribute="width" constant="300" id="Miy-PE-gUq"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="eJc-N3-A0X" appends="YES" id="BAL-91-DNB"/>
+                                    <outletCollection property="gestureRecognizers" destination="dGl-CZ-6ef" appends="YES" id="VBt-6z-Tze"/>
                                 </connections>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Do you like this kitty?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nis-X2-Mxn">
-                                <rect key="frame" x="52" y="100" width="312" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swp-ve-GgG" userLabel="Card 2" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                                <rect key="frame" x="57" y="223" width="300" height="450"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="Hvt-5h-uFC"/>
+                                    <constraint firstAttribute="width" constant="300" id="dNx-Wo-nqB"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="br1-nm-toF" appends="YES" id="0Q5-R4-SBf"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1nb-m6-Ijo" userLabel="Card 3" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                                <rect key="frame" x="57" y="223" width="300" height="450"/>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="450" id="2f5-zg-gE2"/>
+                                    <constraint firstAttribute="width" constant="300" id="h6c-Qv-8c6"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="eJc-N3-A0X" appends="YES" id="7Oq-dt-RAI"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="swp-ve-GgG" firstAttribute="centerY" secondItem="lfK-Gm-gZc" secondAttribute="centerY" id="1kb-9F-1hu"/>
                             <constraint firstItem="DM2-Tc-yVi" firstAttribute="centerX" secondItem="lfK-Gm-gZc" secondAttribute="centerX" id="LmF-Ju-9Cp"/>
                             <constraint firstItem="DM2-Tc-yVi" firstAttribute="centerY" secondItem="lfK-Gm-gZc" secondAttribute="centerY" id="Q4K-mp-CkT"/>
+                            <constraint firstItem="swp-ve-GgG" firstAttribute="centerX" secondItem="lfK-Gm-gZc" secondAttribute="centerX" id="U0v-bL-U8f"/>
+                            <constraint firstItem="1nb-m6-Ijo" firstAttribute="centerX" secondItem="lfK-Gm-gZc" secondAttribute="centerX" id="psY-RJ-QLS"/>
+                            <constraint firstItem="1nb-m6-Ijo" firstAttribute="centerY" secondItem="lfK-Gm-gZc" secondAttribute="centerY" id="sdI-2k-0Uu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nxQ-nF-3Ex"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Rate" image="heart" catalog="system" id="mWi-VH-3zv"/>
                     <connections>
                         <outlet property="card" destination="DM2-Tc-yVi" id="zNo-if-YJV"/>
+                        <outlet property="card2" destination="swp-ve-GgG" id="v3t-TP-Okn"/>
+                        <outlet property="card3" destination="1nb-m6-Ijo" id="F1F-Jn-Y2R"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoX-TS-vxl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="eJc-N3-A0X">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="eJc-N3-A0X" userLabel="Card 3 Recognizer">
                     <connections>
                         <action selector="testPan:" destination="K1t-MR-zjg" id="X0s-1E-uha"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="br1-nm-toF" userLabel="Card 2 Recognizer">
+                    <connections>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="Fay-SB-NqM"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="dGl-CZ-6ef" userLabel="Card 1 Recognizer">
+                    <connections>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="cmJ-oO-tLX"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

@@ -11,6 +11,8 @@ import UIKit
 class CatCardViewController: UIViewController {
     
     @IBOutlet weak var card: CardView!
+    @IBOutlet weak var card2: CardView!
+    @IBOutlet weak var card3: CardView!
     
     @IBOutlet weak var catImageView: UIImageView!
     @IBOutlet weak var rateImage: UIImageView!
@@ -25,7 +27,7 @@ class CatCardViewController: UIViewController {
         super.viewDidLoad()
         
        
-        card.layer.cornerRadius = 20
+//        card.layer.cornerRadius = 20
         
         divisor = (view.frame.width / 2) / 0.61
         
@@ -60,22 +62,23 @@ class CatCardViewController: UIViewController {
         card.emojiImageView.alpha = abs(xFromCenter) / view.center.x
         
         if sender.state == UIGestureRecognizer.State.ended {
-            self.resetCard(view: card)
             if card.center.x < 75 {
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
-                    card.alpha = 0
-                    self.resetCard(view: card)
+                   // card.alpha = 0
+                    card.removeFromSuperview()
+                    
                 }
                 return
             } else if card.center.x > view.frame.width - 75 {
                 UIView.animate(withDuration: 0.3) {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
-                    card.alpha = 0
-                    self.resetCard(view: card)
+                    //card.alpha = 0
+                     card.removeFromSuperview()
                 }
                 return
             }
+           
         }
     }
     
