@@ -10,6 +10,7 @@ import UIKit
 
 class CatCardViewController: UIViewController {
     
+    @IBOutlet weak var cardViews: UIView!
     @IBOutlet weak var card: CardView!
     @IBOutlet weak var card2: CardView!
     @IBOutlet weak var card3: CardView!
@@ -47,10 +48,10 @@ class CatCardViewController: UIViewController {
      
     @IBAction func testPan(_ sender: UIPanGestureRecognizer) {
         let card = sender.view! as! CardView
-        let point = sender.translation(in: view)
-        let xFromCenter = card.center.x - view.center.x
+        let point = sender.translation(in: cardViews)
+        let xFromCenter = card.center.x - cardViews.center.x
         let scale = min(80/abs(xFromCenter), 1)
-        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y + point.y)
+        card.center = CGPoint(x: cardViews.center.x + point.x, y: cardViews.center.y + point.y)
         
         card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor).scaledBy(x: scale, y: scale)
         
@@ -59,43 +60,62 @@ class CatCardViewController: UIViewController {
         } else {
             card.emojiImageView.image = UIImage(named: "unlike")
         }
-        card.emojiImageView.alpha = abs(xFromCenter) / view.center.x
+        card.emojiImageView.alpha = abs(xFromCenter) / cardViews.center.x
         
         if sender.state == UIGestureRecognizer.State.ended {
+            
             if card.center.x < 75 {
-                UIView.animate(withDuration: 0.3) {
-                    card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
-                   // card.alpha = 0
-                    card.removeFromSuperview()
-                    
-                }
+                UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
+                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
+                     card.alpha = 0
+                }, completion: { (finished: Bool) in
+                    self.resetCard(card)
+                } )
+                
                 return
-            } else if card.center.x > view.frame.width - 75 {
-                UIView.animate(withDuration: 0.3) {
-                    card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
-                    //card.alpha = 0
-                     card.removeFromSuperview()
-                }
+            } else if card.center.x > cardViews.frame.width - 75 {
+                UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
+                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
+                     card.alpha = 0
+                }, completion: { (finished: Bool) in
+                    self.resetCard(card)
+                } )
+                
                 return
+            } else {
+                returnCard(card)
             }
-           
+            
+            
         }
+        
     }
     
-    @IBAction func reset(_ sender: UIButton) {
+    func endedPan(complition: @escaping (CardView) -> ()) {
         
     }
 
+
     
-    func resetCard(view: CardView){
+    func returnCard(_ card: CardView){
         UIView.animate(withDuration: 0.2) {
-            view.center = self.view.center
-            view.emojiImageView.alpha = 0
-            view.alpha = 1
-            view.transform = CGAffineTransform.identity
-            
+            card.center = self.cardViews.center
+            card.emojiImageView.alpha = 0
+            card.alpha = 1
+            card.transform = CGAffineTransform.identity
         }
     }
+    
+    func resetCard(_ card: CardView) {
+       print("reset")
+         self.cardViews.sendSubviewToBack(card)
+         card.center = self.cardViews.center
+         card.emojiImageView.alpha = 0
+         card.transform = CGAffineTransform.identity
+         card.alpha = 1
+        
+    }
+    
     
     func getCatsArray(completion: @escaping (Result<[Cats]?, Error>) -> Void) {
         
@@ -128,7 +148,7 @@ class CatCardViewController: UIViewController {
         if let data = try? Data(contentsOf: catURL) {
             let image = UIImage(data: data)
             DispatchQueue.main.async {
-                self.card.catImageView.image = image
+                self.card3.catImageView.image = image
             
             }
         }

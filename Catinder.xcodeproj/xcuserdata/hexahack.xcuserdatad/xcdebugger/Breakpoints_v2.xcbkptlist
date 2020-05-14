@@ -14,8 +14,8 @@
             filePath = "Catinder/CatCardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "CatCardViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -161,22 +161,6 @@
             startingLineNumber = "41"
             endingLineNumber = "41"
             landmarkName = "getBreedsArray(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "697F9F27-533E-47D9-BA34-F8B343264442"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Catinder/CatCardViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "testPan(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
