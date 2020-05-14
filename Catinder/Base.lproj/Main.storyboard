@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0D2-xn-8M6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Breeds bestiary-->
+        <scene sceneID="W8d-u5-zWB">
+            <objects>
+                <tableViewController id="hi6-Jl-c7F" customClass="BestiaryViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9WH-EY-FDB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BestiaryCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BestiaryCell" textLabel="6OE-gj-SFg" imageView="z7I-Xv-PCc" rowHeight="93" style="IBUITableViewCellStyleDefault" id="dvU-NN-bD2" customClass="BestiaryCell" customModule="Catinder" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="93"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dvU-NN-bD2" id="7US-7x-gx6">
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="93"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6OE-gj-SFg">
+                                            <rect key="frame" x="128" y="0.0" width="247" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="cat" id="z7I-Xv-PCc">
+                                            <rect key="frame" x="20" y="0.0" width="93" height="93"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="breedImage" destination="z7I-Xv-PCc" id="Xja-VJ-UXd"/>
+                                    <outlet property="breedName" destination="6OE-gj-SFg" id="7n0-Hz-SdH"/>
+                                    <segue destination="iNU-YT-165" kind="show" id="QGI-MR-O7H"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hi6-Jl-c7F" id="CPP-cS-Isg"/>
+                            <outlet property="delegate" destination="hi6-Jl-c7F" id="eQC-2o-JWd"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Bestiary" id="NIQ-x0-92C"/>
+                    <navigationItem key="navigationItem" title="Breeds bestiary" id="efY-HP-orS"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cdX-0P-XdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="335" y="194"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="KTu-uv-kHL">
+            <objects>
+                <viewController id="iNU-YT-165" customClass="DetailViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WGr-2o-uTQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="KTd-Y0-ex8"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VPy-ac-gw6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xgh-2u-fF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1091" y="194"/>
+        </scene>
+        <!--Bestiary-->
+        <scene sceneID="BtM-5H-vO2">
+            <objects>
+                <navigationController id="09T-6n-DmI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Bestiary" image="book" catalog="system" id="k3Y-nf-HQM"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KtQ-Tl-e7Q">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="hi6-Jl-c7F" kind="relationship" relationship="rootViewController" id="sic-Xx-96W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1K5-xC-kWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="194"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="Ab3-cp-C7F">
+            <objects>
+                <collectionViewController id="DwG-v2-JWN" customClass="FavoritesViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="HRW-xa-7Wn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aUe-Cp-nzm">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VlZ-1A-ygQ">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="r9M-Cl-JJD">
+                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </collectionViewCellContentView>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="DwG-v2-JWN" id="xhf-EI-Dle"/>
+                            <outlet property="delegate" destination="DwG-v2-JWN" id="6Wc-tW-vAr"/>
+                        </connections>
+                    </collectionView>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="pxc-Nd-4kY"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-bk-7rw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-378" y="1625"/>
+        </scene>
+        <!--Rate-->
+        <scene sceneID="oTQ-Fj-1zw">
+            <objects>
+                <viewController id="K1t-MR-zjg" customClass="CatCardViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lfK-Gm-gZc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kwy-mH-1MJ">
+                                <rect key="frame" x="48" y="269" width="313" height="440"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhU-NU-Y6O">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kM-qy-UBh">
+                                        <rect key="frame" x="136" y="85" width="46" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="146-ai-lue">
+                                        <rect key="frame" x="23" y="114" width="266" height="289"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" fixedFrame="YES" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-8B-8Sn">
+                                        <rect key="frame" x="59" y="164" width="200" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="7Jn-Cy-7Xs" appends="YES" id="G0k-NE-XZV"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You like this kitty?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nis-X2-Mxn">
+                                <rect key="frame" x="52" y="94" width="312" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SYU-73-LWG">
+                                <rect key="frame" x="188" y="73" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="reset:" destination="K1t-MR-zjg" eventType="touchUpInside" id="Al5-zC-wzg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="nxQ-nF-3Ex"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Rate" image="heart" catalog="system" id="mWi-VH-3zv"/>
+                    <connections>
+                        <outlet property="CardView" destination="146-ai-lue" id="HKh-sZ-9rQ"/>
+                        <outlet property="cardView" destination="Kwy-mH-1MJ" id="gfe-XJ-rgM"/>
+                        <outlet property="catBreed" destination="3kM-qy-UBh" id="mP7-Lv-hyG"/>
+                        <outlet property="catImageView" destination="146-ai-lue" id="gW9-hy-zbz"/>
+                        <outlet property="catName" destination="xhU-NU-Y6O" id="0Zk-fl-ZU2"/>
+                        <outlet property="rateImage" destination="6TG-8B-8Sn" id="7nx-T9-zaW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AoX-TS-vxl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="7Jn-Cy-7Xs">
+                    <connections>
+                        <action selector="panCard:" destination="K1t-MR-zjg" id="9bx-p9-HIg"/>
+                    </connections>
+                </panGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-423" y="-448"/>
+        </scene>
+        <!--User-->
+        <scene sceneID="kGw-wT-ozl">
+            <objects>
+                <viewController id="oCV-vB-zn7" customClass="ViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Vum-EV-FeI" customClass="View">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ByR-DX-1qa"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" id="uvz-Sg-cyB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vgf-if-W2D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-377" y="921"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="e55-YN-zt6">
+            <objects>
+                <tabBarController id="0D2-xn-8M6" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Cad-Tx-gex">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="K1t-MR-zjg" kind="relationship" relationship="viewControllers" id="Qvq-xO-x8c"/>
+                        <segue destination="09T-6n-DmI" kind="relationship" relationship="viewControllers" id="ZfK-nc-VF7"/>
+                        <segue destination="oCV-vB-zn7" kind="relationship" relationship="viewControllers" id="elF-9J-EJA"/>
+                        <segue destination="DwG-v2-JWN" kind="relationship" relationship="viewControllers" id="bUP-vr-lI0"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5xB-6J-2HM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1201" y="194"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book" catalog="system" width="128" height="101"/>
+        <image name="cat" width="512" height="512"/>
+        <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="like" width="512" height="512"/>
+        <image name="person" catalog="system" width="128" height="117"/>
+        <image name="star" catalog="system" width="128" height="116"/>
+    </resources>
+</document>
