@@ -28,7 +28,7 @@ class CatCardViewController: UIViewController {
     }
     
     func firstLoad(){
-        getCatsArray(count: 3) { [weak self] result in
+        getCatsArray(count: 10) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let cats):
@@ -95,8 +95,8 @@ class CatCardViewController: UIViewController {
     }
     
     func loadNextImages() {
-        getCatsArray(count: 10) { [weak self] result in
-            DispatchQueue.main.async {
+        getCatsArray(count: 1) { [weak self] result in
+            DispatchQueue.global().async {
                 switch result {
                 case .success(let cats):
                     self?.cats = cats
@@ -122,7 +122,7 @@ class CatCardViewController: UIViewController {
     func resetCard(_ card: CardView) {
         self.cardViews.sendSubviewToBack(card)
         card.catImageView.image = self.catsImages.removeFirst()
-        if catsImages.count < 5 {
+        if catsImages.count < 8 {
             loadNextImages()
         }
         card.center = self.cardViews.center
