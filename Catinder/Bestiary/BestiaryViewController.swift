@@ -11,6 +11,8 @@ import UIKit
 class BestiaryViewController: UITableViewController {
     
     var breedsArray = [Breed]()
+    var selectedBreed: Breed?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,9 +47,28 @@ class BestiaryViewController: UITableViewController {
         }.resume()
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("")
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        selectedBreed = breedsArray[indexPath.row]
+//              performSegue(withIdentifier: "test", sender: self)
+        return indexPath
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+//        selectedBreed = breedsArray[indexPath.row]
+//        performSegue(withIdentifier: "test", sender: self)
+        print("tap")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "test" {
+            let vc = segue.destination as? DetailViewController
+            vc?.passedBreed = selectedBreed
+            
+        }
+    }
+    
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

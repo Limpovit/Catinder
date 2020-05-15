@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Breeds bestiary-->
+        <!--Bestiary-->
         <scene sceneID="W8d-u5-zWB">
             <objects>
                 <tableViewController id="hi6-Jl-c7F" customClass="BestiaryViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                                 <connections>
                                     <outlet property="breedImage" destination="z7I-Xv-PCc" id="Xja-VJ-UXd"/>
                                     <outlet property="breedName" destination="6OE-gj-SFg" id="7n0-Hz-SdH"/>
-                                    <segue destination="iNU-YT-165" kind="show" id="QGI-MR-O7H"/>
+                                    <segue destination="iNU-YT-165" kind="show" identifier="test" id="QGI-MR-O7H"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -50,7 +50,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Bestiary" id="NIQ-x0-92C"/>
-                    <navigationItem key="navigationItem" title="Breeds bestiary" id="efY-HP-orS"/>
+                    <navigationItem key="navigationItem" title="Bestiary" id="efY-HP-orS"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cdX-0P-XdC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -63,14 +63,41 @@
                     <view key="view" contentMode="scaleToFill" id="WGr-2o-uTQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hsi-9U-uZz">
+                                <rect key="frame" x="0.0" y="428" width="414" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-rj-VO4">
+                                <rect key="frame" x="20" y="496" width="374" height="317"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gHf-G8-oEX">
+                                <rect key="frame" x="0.0" y="88" width="414" height="330"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="KTd-Y0-ex8"/>
                     </view>
                     <navigationItem key="navigationItem" id="VPy-ac-gw6"/>
+                    <connections>
+                        <outlet property="breedDescription" destination="aEj-rj-VO4" id="fQX-CE-yAD"/>
+                        <outlet property="breedImage" destination="gHf-G8-oEX" id="ghU-bv-svX"/>
+                        <outlet property="breedName" destination="Hsi-9U-uZz" id="Q3y-fN-GHG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xgh-2u-fF4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1091" y="194"/>
+            <point key="canvasLocation" x="1089.8550724637682" y="193.52678571428569"/>
         </scene>
         <!--Bestiary-->
         <scene sceneID="BtM-5H-vO2">
@@ -289,8 +316,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="K1t-MR-zjg" kind="relationship" relationship="viewControllers" id="Qvq-xO-x8c"/>
                         <segue destination="09T-6n-DmI" kind="relationship" relationship="viewControllers" id="ZfK-nc-VF7"/>
+                        <segue destination="K1t-MR-zjg" kind="relationship" relationship="viewControllers" id="Qvq-xO-x8c"/>
                         <segue destination="oCV-vB-zn7" kind="relationship" relationship="viewControllers" id="elF-9J-EJA"/>
                         <segue destination="DwG-v2-JWN" kind="relationship" relationship="viewControllers" id="bUP-vr-lI0"/>
                     </connections>

@@ -28,7 +28,7 @@ class CatCardViewController: UIViewController {
     }
     
     func firstLoad(){
-        getCatsArray(count: 10) { [weak self] result in
+        getCatsArray(count: 3) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let cats):
@@ -175,19 +175,4 @@ class CatCardViewController: UIViewController {
     }
 }
 
-
-extension UIImageView {
-    func load(by url: URL) {
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.image = image
-                        
-                    }
-                }
-            }
-        }
-    }
-}
 
