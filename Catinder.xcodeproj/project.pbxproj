@@ -15,6 +15,7 @@
 		7B4DF751246AA9850026320D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF74F246AA9850026320D /* Main.storyboard */; };
 		7B4DF753246AA9850026320D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF752246AA9850026320D /* Assets.xcassets */; };
 		7B4DF756246AA9850026320D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF754246AA9850026320D /* LaunchScreen.storyboard */; };
+		7B5D74C3246EEF6300011323 /* FavouritesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5D74C2246EEF6300011323 /* FavouritesCollectionViewCell.swift */; };
 		7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B689DC3246C09CF00C84B05 /* Cats.swift */; };
 		7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B689DC6246C5D7400C84B05 /* BestiaryCell.swift */; };
 		7BB1DA0C246AF478002AAE4D /* CatCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */; };
@@ -33,6 +34,7 @@
 		7B4DF752246AA9850026320D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B4DF755246AA9850026320D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B4DF757246AA9850026320D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5D74C2246EEF6300011323 /* FavouritesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesCollectionViewCell.swift; sourceTree = "<group>"; };
 		7B689DC3246C09CF00C84B05 /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
 		7B689DC6246C5D7400C84B05 /* BestiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestiaryCell.swift; sourceTree = "<group>"; };
 		7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCardViewController.swift; sourceTree = "<group>"; };
@@ -93,13 +95,22 @@
 				7B47CC59246D4D1C008B1B9E /* CardView.swift */,
 				7B47CC5B246D5355008B1B9E /* CardView.xib */,
 				7B689DC5246C5D3300C84B05 /* Bestiary */,
-				7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */,
+				7B5D74C1246EEF2A00011323 /* Favourites */,
 				7B4DF74F246AA9850026320D /* Main.storyboard */,
 				7B4DF752246AA9850026320D /* Assets.xcassets */,
 				7B4DF754246AA9850026320D /* LaunchScreen.storyboard */,
 				7B4DF757246AA9850026320D /* Info.plist */,
 			);
 			path = Catinder;
+			sourceTree = "<group>";
+		};
+		7B5D74C1246EEF2A00011323 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */,
+				7B5D74C2246EEF6300011323 /* FavouritesCollectionViewCell.swift */,
+			);
+			path = Favourites;
 			sourceTree = "<group>";
 		};
 		7B689DC5246C5D3300C84B05 /* Bestiary */ = {
@@ -186,6 +197,7 @@
 			files = (
 				7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */,
 				7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */,
+				7B5D74C3246EEF6300011323 /* FavouritesCollectionViewCell.swift in Sources */,
 				7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */,
 				7BB1DA0E246AF52E002AAE4D /* BestiaryViewController.swift in Sources */,
 				7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */,

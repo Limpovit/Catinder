@@ -14,44 +14,37 @@ class CatCardViewController: UIViewController {
     @IBOutlet weak var card: CardView!
     @IBOutlet weak var card2: CardView!
     @IBOutlet weak var card3: CardView!
-    
-    @IBOutlet weak var catImageView: UIImageView!
-    @IBOutlet weak var rateImage: UIImageView!
-    
+        
     
     var cats: [Cats]?
     var catsImages = [UIImage]()
-    var ratedImages = [UIImage]()
+    public var ratedImages = [UIImage]()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
-       
-//        card.layer.cornerRadius = 20
-        
+        super.viewDidLoad()           
         
         firstLoad()
-
+        
     }
-     
+    
     func firstLoad(){
         getCatsArray(count: 10) { [weak self] result in
-        DispatchQueue.main.async {
-            switch result {
-            case .success(let cats):
-                self?.cats = cats
-                self?.loadCatsImage(cats: cats!, completion: { (catsImages) in
-                    self!.catsImages = catsImages
-                    for  card in self!.cardViews.subviews as! [CardView] {
-                        card.catImageView.image = self!.catsImages.removeFirst()
-                        print(self!.catsImages.count)
-                    }
-                })
-            case .failure(let error):
-                print(error)
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let cats):
+                    self?.cats = cats
+                    self?.loadCatsImage(cats: cats!, completion: { (catsImages) in
+                        self!.catsImages = catsImages
+                        for  card in self!.cardViews.subviews as! [CardView] {
+                            card.catImageView.image = self!.catsImages.removeFirst()
+                            
+                        }
+                    })
+                case .failure(let error):
+                    print(error)
+                }
             }
         }
-    }
     }
     
     @IBAction func testPan(_ sender: UIPanGestureRecognizer) {
@@ -76,32 +69,31 @@ class CatCardViewController: UIViewController {
             
             if card.center.x < 75 {
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
-                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
-                     card.alpha = 0
+                    card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
+                    card.alpha = 0
                 }, completion: { (finished: Bool) in
                     self.resetCard(card)
                 } )
-                
                 return
+                
             } else if card.center.x > cardViews.frame.width - 75 {
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
-                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
-                     card.alpha = 0
-                }, completion: { (finished: Bool) in
+                    card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
+                    card.alpha = 0
+                }, completion: { (finished: Bool) in                   
                     self.ratedImages.append(card.catImageView.image!)
+                    print("likes \(self.ratedImages.count)")
                     self.resetCard(card)
                 } )
-                
                 return
+                
             } else {
                 returnCard(card)
             }
-            
-            
         }
         
     }
-
+    
     func loadNextImages() {
         getCatsArray(count: 10) { [weak self] result in
             DispatchQueue.main.async {
@@ -128,15 +120,15 @@ class CatCardViewController: UIViewController {
     }
     
     func resetCard(_ card: CardView) {
-         self.cardViews.sendSubviewToBack(card)
-         card.catImageView.image = self.catsImages.removeFirst()
+        self.cardViews.sendSubviewToBack(card)
+        card.catImageView.image = self.catsImages.removeFirst()
         if catsImages.count < 5 {
             loadNextImages()
         }
-         card.center = self.cardViews.center
-         card.emojiImageView.alpha = 0
-         card.transform = CGAffineTransform.identity
-         card.alpha = 1
+        card.center = self.cardViews.center
+        card.emojiImageView.alpha = 0
+        card.transform = CGAffineTransform.identity
+        card.alpha = 1
         
     }
     
@@ -173,15 +165,15 @@ class CatCardViewController: UIViewController {
         
         DispatchQueue.concurrentPerform(iterations: cats.count) { (index) in
             let catURL = URL(string: cats[index].url)!
-                if let data = try? Data(contentsOf: catURL) {
-                    let image = UIImage(data: data)
-                    catsImages.append(image!)
-                    print("image \(index) downlodaded")
-                    }
-                }
-                 completion(catsImages)
+            if let data = try? Data(contentsOf: catURL) {
+                let image = UIImage(data: data)
+                catsImages.append(image!)
+                print("image \(index) downlodaded")
             }
         }
+        completion(catsImages)
+    }
+}
 
 
 extension UIImageView {
