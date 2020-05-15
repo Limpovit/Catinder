@@ -14,8 +14,8 @@
             filePath = "Catinder/CatCardViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "CatCardViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -162,6 +162,69 @@
             endingLineNumber = "41"
             landmarkName = "getBreedsArray(completion:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "435DEFC3-D039-4050-B025-6F729DDA9A92"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Catinder/CatCardViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "CatCardViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "435DEFC3-D039-4050-B025-6F729DDA9A92 - 5fcf8b97ea5995c6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Catinder.CatCardViewController.getURL.getter : Swift.String"
+                  moduleName = "Catinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hexahack/Documents/NekoShelter/Catinder/CatCardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "61">
+               </Location>
+               <Location
+                  uuid = "435DEFC3-D039-4050-B025-6F729DDA9A92 - d54472a4541839c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Catinder.CatCardViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Catinder.CatCardViewController"
+                  moduleName = "Catinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hexahack/Documents/NekoShelter/Catinder/CatCardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1089">
+               </Location>
+               <Location
+                  uuid = "435DEFC3-D039-4050-B025-6F729DDA9A92 - cd8868cc80dd1dde"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Catinder.CatCardViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;Catinder.CatCardViewController&gt;"
+                  moduleName = "Catinder"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hexahack/Documents/NekoShelter/Catinder/CatCardViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "1030">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
