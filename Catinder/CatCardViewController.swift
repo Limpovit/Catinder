@@ -19,9 +19,9 @@ class CatCardViewController: UIViewController {
     @IBOutlet weak var rateImage: UIImageView!
     
     var divisor: CGFloat!
-    let getURL = "https://api.thecatapi.com/v1/images/search?limit"
+    let getURL = "https://api.thecatapi.com/v1/images/search?limit=10"
     var cats: [Cats]?
-    
+    var catsImages = [UIImage]()
     
     
     override func viewDidLoad() {
@@ -38,12 +38,18 @@ class CatCardViewController: UIViewController {
                 switch result {
                 case .success(let cats):
                     self?.cats = cats
-                    self?.loadCatsImage(cats: cats!)
+                    self?.loadCatsImage(cats: cats!, completion: { (catsImages) in
+                        self!.catsImages = catsImages
+                        self!.card.catImageView.image = catsImages[0]
+                            self!.card2.catImageView.image = catsImages[1]
+                        self!.card3.catImageView.image = catsImages[2]
+                    })
                 case .failure(let error):
                     print(error)
                 }
             }
         }
+        
     }
      
     @IBAction func testPan(_ sender: UIPanGestureRecognizer) {
@@ -90,13 +96,7 @@ class CatCardViewController: UIViewController {
         }
         
     }
-    
-    func endedPan(complition: @escaping (CardView) -> ()) {
-        
-    }
 
-
-    
     func returnCard(_ card: CardView){
         UIView.animate(withDuration: 0.2) {
             card.center = self.cardViews.center
@@ -107,7 +107,6 @@ class CatCardViewController: UIViewController {
     }
     
     func resetCard(_ card: CardView) {
-       print("reset")
          self.cardViews.sendSubviewToBack(card)
          card.center = self.cardViews.center
          card.emojiImageView.alpha = 0
@@ -142,18 +141,20 @@ class CatCardViewController: UIViewController {
     
     //    let imageCache = NSCache<NSString, UIImage>()
     
-    func loadCatsImage(cats: [Cats]) {
-        
-        let catURL = URL(string: cats[0].url)!
-        if let data = try? Data(contentsOf: catURL) {
-            let image = UIImage(data: data)
-            DispatchQueue.main.async {
-                self.card3.catImageView.image = image
-            
+    func loadCatsImage(cats: [Cats], completion: @escaping ([UIImage]) -> ()) {
+        var catsImages = [UIImage]()
+        DispatchQueue.concurrentPerform(iterations: cats.count) { (index) in
+            let catURL = URL(string: cats[index].url)!
+                if let data = try? Data(contentsOf: catURL) {
+                    let image = UIImage(data: data)
+                    catsImages.append(image!)
+                    print("image \(index) downlodaded")
+                    }
+                }
+                 completion(catsImages)
             }
         }
-    }
-}
+
 
 extension UIImageView {
     func load(by url: URL) {
