@@ -12,13 +12,17 @@ import Foundation
 protocol ImagesServiceProtocol {
     func getNextImageData() -> (Data)
     func loadImagesData(complition: @escaping () -> ()) -> ()
-    
+    var catImagesCount : Int {get}
 }
 
 class ImagesService: ImagesServiceProtocol {
     
     var catsImagesData = [Data]()
     let apiService: APIServiceProtocol
+    public var catImagesCount : Int {
+        get { return catsImagesData.count
+        }
+    }
     
     init(apiService: APIServiceProtocol) {
         self.apiService = apiService
@@ -26,6 +30,11 @@ class ImagesService: ImagesServiceProtocol {
     
     
     func getNextImageData() -> (Data){
+        if catImagesCount < 8 {
+            loadImagesData {
+                print("loaded next kitties")
+            }
+        }
         return catsImagesData.removeFirst()
     }
     
