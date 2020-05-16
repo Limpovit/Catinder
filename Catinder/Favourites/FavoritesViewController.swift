@@ -10,14 +10,20 @@ import UIKit
 
 class FavoritesViewController: UICollectionViewController {
 
-    public var favouriteImages = [UIImage]()
+    var favouriteImages: [UIImage]!
+    
+    var tabBar: MyTabBarController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tabBar = tabBarController as! MyTabBarController
+        
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       favouriteImages = tabBar?.getFavouritesImages()
         collectionView.reloadData()
     }
 
