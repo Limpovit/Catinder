@@ -67,7 +67,7 @@ class CatCardViewController: UIViewController {
         
         if sender.state == UIGestureRecognizer.State.ended {
             
-            if card.center.x < 75 {
+            if card.center.x < 75 && catsImages.count > 1 {
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
@@ -76,7 +76,7 @@ class CatCardViewController: UIViewController {
                 } )
                 return
                 
-            } else if card.center.x > cardViews.frame.width - 75 {
+            } else if card.center.x > cardViews.frame.width - 75  && catsImages.count > 1{
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
@@ -95,7 +95,7 @@ class CatCardViewController: UIViewController {
     }
     
     func loadNextImages() {
-        getCatsArray(count: 1) { [weak self] result in
+        getCatsArray(count: 10) { [weak self] result in
             DispatchQueue.global().async {
                 switch result {
                 case .success(let cats):
@@ -119,12 +119,13 @@ class CatCardViewController: UIViewController {
         }
     }
     
-    func resetCard(_ card: CardView) {
+    func resetCard(_ card: CardView) {        
         self.cardViews.sendSubviewToBack(card)
         card.catImageView.image = self.catsImages.removeFirst()
         if catsImages.count < 8 {
             loadNextImages()
         }
+
         card.center = self.cardViews.center
         card.emojiImageView.alpha = 0
         card.transform = CGAffineTransform.identity
