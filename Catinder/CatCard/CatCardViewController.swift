@@ -14,9 +14,9 @@ class CatCardViewController: UIViewController {
     @IBOutlet weak var card: CardView!
     @IBOutlet weak var card2: CardView!
     @IBOutlet weak var card3: CardView!
-        
     
-    var cats: [Cats]?
+    
+    
     var catsImages = [UIImage]()
     var tabBar: MyTabBarController?
     let apiService = APIService()
@@ -26,30 +26,29 @@ class CatCardViewController: UIViewController {
         super.viewDidLoad()
         self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1).cgColor])
         firstLoad()
-        tabBar = tabBarController as! MyTabBarController
-  
+        tabBar = tabBarController as? MyTabBarController
+        
         
         
     }
-      
+    
     
     
     
     func firstLoad(){
-        apiService.getData(query: "images/search?limit=10", completion: { [weak self] (cats: [Cats]) in
+        apiService.getData(query: "images/search?limit=5", completion: { [weak self] (cats: [Cats]) in
+            
+            self?.loadCatsImage(cats: cats)
             DispatchQueue.main.async {
-                self?.cats = cats
-                self?.loadCatsImage(cats: cats, completion: { (catsImages) in
-                    self!.catsImages = catsImages
-                    for  card in self!.cardViews.subviews as! [CardView] {
-                        card.catImageView.image = self!.catsImages.removeFirst()
-                        
-                    }
-                })
-
+                guard let self = self else {return}
+                for  card in self.cardViews.subviews as! [CardView] {
+                
+                    card.catImageView.image = self.catsImages.removeFirst()
             }
-        })
+        }
+    })
     }
+    
     
     @IBAction func testPan(_ sender: UIPanGestureRecognizer) {
         
@@ -86,7 +85,6 @@ class CatCardViewController: UIViewController {
                     card.alpha = 0
                 }, completion: { (finished: Bool) in                   
                     self.tabBar?.addToFavourites(image: card.catImageView.image!)
-                    print("likes \(self.tabBar?.favouritesImagesArray.count)")
                     self.resetCard(card)
                 } )
                 return
@@ -99,19 +97,12 @@ class CatCardViewController: UIViewController {
     }
     
     func loadNextImages() {
-        getCatsArray(count: 10) { [weak self] result in
+        apiService.getData(query: "images/search?limit=10", completion: { [weak self] (cats: [Cats])  in
             DispatchQueue.global().async {
-                switch result {
-                case .success(let cats):
-                    self?.cats = cats
-                    self?.loadCatsImage(cats: cats!, completion: { (catsImages) in
-                        self!.catsImages = catsImages
-                    })
-                case .failure(let error):
-                    print(error)
+                    self?.loadCatsImage(cats: cats)
+                
                 }
-            }
-        }
+            })
     }
     
     func returnCard(_ card: CardView){
@@ -129,56 +120,28 @@ class CatCardViewController: UIViewController {
         if catsImages.count < 8 {
             loadNextImages()
         }
-
+        
         card.center = self.cardViews.center
         card.emojiImageView.alpha = 0
         card.transform = CGAffineTransform.identity
         card.alpha = 1
         
-    }
+    }    
+
     
-    
-    func getCatsArray(count number: Int, completion: @escaping (Result<[Cats]?, Error>) -> Void) {
-        let getURL = "https://api.thecatapi.com/v1/images/search?limit=\(number)"
-        guard let url = URL(string: getURL) else {return}
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            do {
-                let obj = try JSONDecoder().decode( [Cats].self, from: data!)
-                completion(.success(obj))
-            }
-                
-            catch let error {
-                completion(.failure(error))
-            }
-            
-        }.resume()
-    }
-    
-    
-    
-    //    let imageCache = NSCache<NSString, UIImage>()
-    
-    func loadCatsImage(cats: [Cats], completion: @escaping ([UIImage]) -> ()) {
-        var catsImages = [UIImage]()
-        
-        
+    func loadCatsImage(cats: [Cats]) {
         
         DispatchQueue.concurrentPerform(iterations: cats.count) { (index) in
             let catURL = URL(string: cats[index].url)!
             if let data = try? Data(contentsOf: catURL) {
-                let image = UIImage(data: data)
-                catsImages.append(image!)
+                guard let image = UIImage(data: data) else {return}
+                catsImages.append(image)
                 print("image \(index) downlodaded")
             }
         }
-        completion(catsImages)
+        }
+        
     }
-}
 
 
 extension UIView {
@@ -192,6 +155,6 @@ extension UIView {
         gradientLayer.type = .axial
         gradientLayer.colors = colors
         self.layer.insertSublayer(gradientLayer, at: 0)
-
+        
     }
 }
