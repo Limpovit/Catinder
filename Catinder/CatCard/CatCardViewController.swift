@@ -18,12 +18,15 @@ class CatCardViewController: UIViewController {
     
     var cats: [Cats]?
     var catsImages = [UIImage]()
-    public var ratedImages = [UIImage]()
+    var tabBar: MyTabBarController?
     
     override func viewDidLoad() {
         super.viewDidLoad()           
         
         firstLoad()
+        tabBar = tabBarController as! MyTabBarController
+  
+        
         
     }
     
@@ -81,8 +84,8 @@ class CatCardViewController: UIViewController {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
                 }, completion: { (finished: Bool) in                   
-                    self.ratedImages.append(card.catImageView.image!)
-                    print("likes \(self.ratedImages.count)")
+                    self.tabBar?.addToFavourites(image: card.catImageView.image!)
+                    print("likes \(self.tabBar?.favouritesImagesArray.count)")
                     self.resetCard(card)
                 } )
                 return
