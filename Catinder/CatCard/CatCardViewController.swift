@@ -21,17 +21,20 @@ class CatCardViewController: UIViewController {
     var tabBar: MyTabBarController?
     
     override func viewDidLoad() {
-        super.viewDidLoad()           
-        
+        super.viewDidLoad()
+        self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1).cgColor])
         firstLoad()
         tabBar = tabBarController as! MyTabBarController
   
         
         
     }
+      
+    
+    
     
     func firstLoad(){
-        getCatsArray(count: 10) { [weak self] result in
+        getCatsArray(count: 5) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let cats):
@@ -180,3 +183,17 @@ class CatCardViewController: UIViewController {
 }
 
 
+extension UIView {
+    func setGradient(_ colors: [CGColor], rounded: Bool = false) {
+        
+        let gradientLayer = CAGradientLayer()
+        if rounded {
+            gradientLayer.cornerRadius = 20
+        }
+        gradientLayer.frame = self.bounds
+        gradientLayer.type = .axial
+        gradientLayer.colors = colors
+        self.layer.insertSublayer(gradientLayer, at: 0)
+
+    }
+}

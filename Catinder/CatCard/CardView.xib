@@ -19,24 +19,27 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aS8-BK-SRp" userLabel="catView">
-                    <rect key="frame" x="25" y="25" width="250" height="400"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="250" id="6Vp-KS-W7R"/>
-                        <constraint firstAttribute="height" constant="400" id="svX-yR-TBc"/>
-                    </constraints>
-                </imageView>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" image="like" id="hno-ID-sCy" userLabel="emojiView">
                     <rect key="frame" x="50" y="125" width="200" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aS8-BK-SRp" userLabel="catView">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="450"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="20"/>
+                    </userDefinedRuntimeAttributes>
+                </imageView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="aS8-BK-SRp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0KK-gV-dbF"/>
                 <constraint firstItem="aS8-BK-SRp" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="7bY-vh-8ZO"/>
+                <constraint firstAttribute="trailing" secondItem="aS8-BK-SRp" secondAttribute="trailing" id="DpU-Ew-x0N"/>
                 <constraint firstItem="aS8-BK-SRp" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="RXy-rE-iZf"/>
                 <constraint firstItem="hno-ID-sCy" firstAttribute="centerY" secondItem="aS8-BK-SRp" secondAttribute="centerY" id="fGc-j5-Pao"/>
+                <constraint firstItem="aS8-BK-SRp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hEe-Ae-CwU"/>
                 <constraint firstItem="hno-ID-sCy" firstAttribute="centerX" secondItem="aS8-BK-SRp" secondAttribute="centerX" id="jzN-11-hMH"/>
+                <constraint firstAttribute="bottom" secondItem="aS8-BK-SRp" secondAttribute="bottom" id="xQk-Wz-gpj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -84,7 +84,6 @@
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-rj-VO4">
                                                 <rect key="frame" x="0.0" y="423" width="375" height="317"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="317" id="g8E-a3-bId"/>
                                                 </constraints>
@@ -213,8 +212,8 @@
                                     <constraint firstAttribute="height" constant="80" id="3Tx-eS-YvE"/>
                                     <constraint firstAttribute="width" constant="270" id="9hR-gV-83M"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tN4-Il-s1Y">
