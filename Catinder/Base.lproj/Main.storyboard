@@ -179,9 +179,6 @@
                                         <constraint firstItem="F4m-Wg-I4p" firstAttribute="top" secondItem="r9M-Cl-JJD" secondAttribute="top" id="7D5-ni-5lN"/>
                                         <constraint firstAttribute="bottom" secondItem="F4m-Wg-I4p" secondAttribute="bottom" id="DeO-vV-m1O"/>
                                     </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="" value="NO"/>
-                                    </userDefinedRuntimeAttributes>
                                 </collectionViewCellContentView>
                                 <size key="customSize" width="179" height="185"/>
                                 <connections>
