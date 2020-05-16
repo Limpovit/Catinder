@@ -15,7 +15,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9WH-EY-FDB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BestiaryCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BestiaryCell" textLabel="6OE-gj-SFg" imageView="z7I-Xv-PCc" rowHeight="93" style="IBUITableViewCellStyleDefault" id="dvU-NN-bD2" customClass="BestiaryCell" customModule="Catinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="93"/>
@@ -37,6 +37,7 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="breedImage" destination="z7I-Xv-PCc" id="Xja-VJ-UXd"/>
                                     <outlet property="breedName" destination="6OE-gj-SFg" id="7n0-Hz-SdH"/>
@@ -149,7 +150,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" dataMode="prototypes" id="HRW-xa-7Wn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v7e-rE-tYd">
                             <size key="itemSize" width="179" height="185"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -266,17 +267,111 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="iRg-Lt-59X"/>
                                         </constraints>
                                         <connections>
-                                            <outletCollection property="gestureRecognizers" destination="eJc-N3-A0X" appends="YES" id="7Oq-dt-RAI"/>
+                                            <outletCollection property="gestureRecognizers" destination="pYc-pI-5av" appends="YES" id="Mwd-z5-jti"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7s-Vd-uTc" userLabel="Card 4" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="4wF-sg-Krt"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="8yU-zb-VLR"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="Q1N-Gu-Aqx"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="fJd-AK-Sau"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="ixz-4h-wuc"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="vEo-ba-Twm"/>
+                                            <constraint firstAttribute="height" constant="450" id="voz-SV-kpc"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="z4U-DB-5Ot"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="min-JH-YC2" appends="YES" id="S6l-X3-osN"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Jk-FY-Ti9" userLabel="Card 5" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="DMo-yi-5QT"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="Eek-Jt-KiQ"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="Fq8-4N-NfR"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="HZ2-6f-1lF"/>
+                                            <constraint firstAttribute="width" constant="300" id="UWQ-DS-itJ"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="Xay-Or-Jj5"/>
+                                            <constraint firstAttribute="height" constant="450" id="hq2-v2-OsV"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="j6U-S0-afy"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="yEd-Ke-uo3" appends="YES" id="Iri-NN-jNT"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OBk-5P-8Ed" userLabel="Card 6" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="LcV-HE-hSi"/>
+                                            <constraint firstAttribute="height" constant="450" id="NeI-gg-ZbF"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="SW4-1U-UeH"/>
+                                            <constraint firstAttribute="width" constant="300" id="cYS-XI-Ykx"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="fpT-cs-MBS"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="lpb-RC-MOh"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="pIA-79-N2n"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="rLB-jW-Otv"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9Ub-XP-xOa" appends="YES" id="v58-Vw-z8n"/>
+                                        </connections>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A9l-Wp-LkS" userLabel="Card 7" customClass="CardView" customModule="Catinder" customModuleProvider="target">
+                                        <rect key="frame" x="37.5" y="108.5" width="300" height="450"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="2Ld-4F-Cbn"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="450" id="2mI-Pr-A25"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="450" id="Lq8-kR-FbD"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="PNG-qM-E8H"/>
+                                            <constraint firstAttribute="width" constant="300" id="PoW-nh-QYJ"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="j36-Jx-igv"/>
+                                            <constraint firstAttribute="height" constant="450" id="tQl-yb-F4P"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="300" id="uvS-8p-iXL"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="Tec-Ep-Unb" appends="YES" id="pqI-06-kUQ"/>
                                         </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="swp-ve-GgG" firstAttribute="width" secondItem="DM2-Tc-yVi" secondAttribute="width" id="0sr-rV-Xhd"/>
+                                    <constraint firstItem="1nb-m6-Ijo" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="1IZ-oG-pDz"/>
+                                    <constraint firstItem="swp-ve-GgG" firstAttribute="height" secondItem="DM2-Tc-yVi" secondAttribute="height" id="1LO-F4-Gab"/>
+                                    <constraint firstItem="1Jk-FY-Ti9" firstAttribute="width" secondItem="DM2-Tc-yVi" secondAttribute="width" id="2ik-EE-erz"/>
+                                    <constraint firstItem="1nb-m6-Ijo" firstAttribute="width" secondItem="DM2-Tc-yVi" secondAttribute="width" id="3w1-ph-25E"/>
+                                    <constraint firstItem="h7s-Vd-uTc" firstAttribute="height" secondItem="DM2-Tc-yVi" secondAttribute="height" id="4aI-BP-6eO"/>
+                                    <constraint firstItem="A9l-Wp-LkS" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="BMd-sR-Dsv"/>
+                                    <constraint firstItem="h7s-Vd-uTc" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="D06-x2-VRX"/>
+                                    <constraint firstItem="h7s-Vd-uTc" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="E2e-oM-DjT"/>
+                                    <constraint firstItem="DM2-Tc-yVi" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="MRx-ob-rZj"/>
                                     <constraint firstItem="DM2-Tc-yVi" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="Mib-lu-4Rm"/>
                                     <constraint firstItem="DM2-Tc-yVi" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="NWc-nV-4y1"/>
+                                    <constraint firstItem="swp-ve-GgG" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="QLs-02-IE4"/>
+                                    <constraint firstItem="DM2-Tc-yVi" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="Tit-OF-AK8"/>
                                     <constraint firstItem="swp-ve-GgG" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="VeF-4t-I31"/>
+                                    <constraint firstItem="OBk-5P-8Ed" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="Wga-DS-UKh"/>
+                                    <constraint firstItem="1Jk-FY-Ti9" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="YwB-f0-mWd"/>
+                                    <constraint firstItem="A9l-Wp-LkS" firstAttribute="height" secondItem="DM2-Tc-yVi" secondAttribute="height" id="Z1E-Pk-DVZ"/>
+                                    <constraint firstItem="1Jk-FY-Ti9" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="a2x-zb-CeH"/>
                                     <constraint firstItem="1nb-m6-Ijo" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="c4U-w3-37h"/>
+                                    <constraint firstItem="OBk-5P-8Ed" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="dSi-pr-BkK"/>
+                                    <constraint firstItem="1Jk-FY-Ti9" firstAttribute="height" secondItem="DM2-Tc-yVi" secondAttribute="height" id="gDk-LF-Rvn"/>
+                                    <constraint firstItem="OBk-5P-8Ed" firstAttribute="height" secondItem="DM2-Tc-yVi" secondAttribute="height" id="hlx-h2-sGF"/>
+                                    <constraint firstItem="h7s-Vd-uTc" firstAttribute="width" secondItem="DM2-Tc-yVi" secondAttribute="width" id="hps-NQ-MLN"/>
+                                    <constraint firstItem="swp-ve-GgG" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="jJc-Kz-o4w"/>
+                                    <constraint firstItem="1nb-m6-Ijo" firstAttribute="height" secondItem="DM2-Tc-yVi" secondAttribute="height" id="jdQ-OC-El4"/>
+                                    <constraint firstItem="A9l-Wp-LkS" firstAttribute="width" secondItem="DM2-Tc-yVi" secondAttribute="width" id="kyP-Sy-c1g"/>
                                     <constraint firstItem="1nb-m6-Ijo" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="pus-f9-V24"/>
+                                    <constraint firstItem="1nb-m6-Ijo" firstAttribute="centerX" secondItem="tN4-Il-s1Y" secondAttribute="centerX" id="vfW-nU-LhY"/>
                                     <constraint firstItem="swp-ve-GgG" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="yzO-ia-t1U"/>
+                                    <constraint firstItem="A9l-Wp-LkS" firstAttribute="centerY" secondItem="tN4-Il-s1Y" secondAttribute="centerY" id="zcK-o3-eaY"/>
+                                    <constraint firstItem="OBk-5P-8Ed" firstAttribute="width" secondItem="DM2-Tc-yVi" secondAttribute="width" id="zhx-D2-omU"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -294,16 +389,33 @@
                     <tabBarItem key="tabBarItem" title="Rate" image="heart" catalog="system" id="RRd-I2-1GA"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="card" destination="DM2-Tc-yVi" id="zNo-if-YJV"/>
-                        <outlet property="card2" destination="swp-ve-GgG" id="v3t-TP-Okn"/>
-                        <outlet property="card3" destination="1nb-m6-Ijo" id="F1F-Jn-Y2R"/>
                         <outlet property="cardViews" destination="tN4-Il-s1Y" id="pwB-Lj-9EB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoX-TS-vxl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="eJc-N3-A0X" userLabel="Card 3 Recognizer">
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Tec-Ep-Unb" userLabel="Card 7 Recognizer">
                     <connections>
-                        <action selector="testPan:" destination="K1t-MR-zjg" id="X0s-1E-uha"/>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="Z2r-nj-NAL"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="9Ub-XP-xOa" userLabel="Card 6 Recognizer">
+                    <connections>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="BXm-32-lav"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="yEd-Ke-uo3" userLabel="Card 5 Recognizer">
+                    <connections>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="uWe-hh-zUB"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="min-JH-YC2" userLabel="Card 4 Recognizer">
+                    <connections>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="O2D-LZ-2Lj"/>
+                    </connections>
+                </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="pYc-pI-5av" userLabel="Card 3 Recognizer">
+                    <connections>
+                        <action selector="testPan:" destination="K1t-MR-zjg" id="7di-ce-5Pf"/>
                     </connections>
                 </panGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="br1-nm-toF" userLabel="Card 2 Recognizer">
@@ -343,6 +455,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="09T-6n-DmI" kind="relationship" relationship="viewControllers" id="ZfK-nc-VF7"/>
@@ -356,6 +469,7 @@
             <point key="canvasLocation" x="-1201" y="194"/>
         </scene>
     </scenes>
+    <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="book" catalog="system" width="128" height="101"/>
         <image name="cat" width="512" height="512"/>
