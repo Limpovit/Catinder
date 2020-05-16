@@ -17,13 +17,15 @@ class CatCardViewController: UIViewController {
     
     
     
-    var catsImagesData = [Data]()
+   
     var tabBar: MyTabBarController?
     let apiService = APIService()
-    
+    var imagesService: ImagesServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        imagesService = ImagesService(apiService: apiService)
         self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1).cgColor])
         firstLoad()
         tabBar = tabBarController as? MyTabBarController
@@ -36,17 +38,15 @@ class CatCardViewController: UIViewController {
     
     
     func firstLoad(){
-        apiService.getData(query: "images/search?limit=5", completion: { [weak self] (cats: [Cats]) in
-            
-            self?.loadCatsImage(cats: cats)
+        
+        imagesService.loadImagesData {
             DispatchQueue.main.async {
-                guard let self = self else {return}
                 for  card in self.cardViews.subviews as! [CardView] {
-                 guard let image = UIImage(data: self.catsImagesData.removeFirst()) else {return}
+                    guard let image = UIImage(data: self.imagesService.getNextImageData()) else {return}
                     card.catImageView.image = image
             }
         }
-    })
+        }
     }
     
     
@@ -70,7 +70,7 @@ class CatCardViewController: UIViewController {
         
         if sender.state == UIGestureRecognizer.State.ended {
             
-            if card.center.x < 75 && catsImagesData.count > 1 {
+            if card.center.x < 75 && imagesService.catImagesCount > 1 {
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
@@ -79,7 +79,7 @@ class CatCardViewController: UIViewController {
                 } )
                 return
                 
-            } else if card.center.x > cardViews.frame.width - 75  && catsImagesData.count > 1{
+            } else if card.center.x > cardViews.frame.width - 75  && imagesService.catImagesCount > 1{
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
@@ -96,14 +96,7 @@ class CatCardViewController: UIViewController {
         
     }
     
-    func loadNextImages() {
-        apiService.getData(query: "images/search?limit=10", completion: { [weak self] (cats: [Cats])  in
-            DispatchQueue.global().async {
-                    self?.loadCatsImage(cats: cats)
-                
-                }
-            })
-    }
+  
     
     func returnCard(_ card: CardView){
         UIView.animate(withDuration: 0.2) {
@@ -116,31 +109,15 @@ class CatCardViewController: UIViewController {
     
     func resetCard(_ card: CardView) {        
         self.cardViews.sendSubviewToBack(card)
-        guard let image = UIImage(data: self.catsImagesData.removeFirst()) else {return}
+        guard let image = UIImage(data: self.imagesService.getNextImageData()) else {return}
         card.catImageView.image = image
-        if catsImagesData.count < 8 {
-            loadNextImages()
-        }
-        
         card.center = self.cardViews.center
         card.emojiImageView.alpha = 0
         card.transform = CGAffineTransform.identity
         card.alpha = 1
         
     }
-
-    
-    func loadCatsImage(cats: [Cats]) {
-        
-        DispatchQueue.concurrentPerform(iterations: cats.count) { (index) in
-            let catURL = URL(string: cats[index].url)!
-            if let data = try? Data(contentsOf: catURL) {               
-                catsImagesData.append(data)
-            }
-        }
-        }
-        
-    }
+}
 
 
 extension UIView {
@@ -157,3 +134,4 @@ extension UIView {
         
     }
 }
+
