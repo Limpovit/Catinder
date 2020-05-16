@@ -64,8 +64,8 @@
 		7B47CC57246D3AA2008B1B9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B689DC3246C09CF00C84B05 /* Cats.swift */,
 				7B729B97246FFAF100BD47FA /* MyTabBarController.swift */,
+				7B689DC3246C09CF00C84B05 /* Cats.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
