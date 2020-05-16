@@ -19,6 +19,8 @@ class CatCardViewController: UIViewController {
     var cats: [Cats]?
     var catsImages = [UIImage]()
     var tabBar: MyTabBarController?
+    let apiService = APIService()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,23 +36,19 @@ class CatCardViewController: UIViewController {
     
     
     func firstLoad(){
-        getCatsArray(count: 5) { [weak self] result in
+        apiService.getData(query: "images/search?limit=10", completion: { [weak self] (cats: [Cats]) in
             DispatchQueue.main.async {
-                switch result {
-                case .success(let cats):
-                    self?.cats = cats
-                    self?.loadCatsImage(cats: cats!, completion: { (catsImages) in
-                        self!.catsImages = catsImages
-                        for  card in self!.cardViews.subviews as! [CardView] {
-                            card.catImageView.image = self!.catsImages.removeFirst()
-                            
-                        }
-                    })
-                case .failure(let error):
-                    print(error)
-                }
+                self?.cats = cats
+                self?.loadCatsImage(cats: cats, completion: { (catsImages) in
+                    self!.catsImages = catsImages
+                    for  card in self!.cardViews.subviews as! [CardView] {
+                        card.catImageView.image = self!.catsImages.removeFirst()
+                        
+                    }
+                })
+
             }
-        }
+        })
     }
     
     @IBAction func testPan(_ sender: UIPanGestureRecognizer) {
