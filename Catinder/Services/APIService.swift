@@ -25,7 +25,11 @@ class APIService: APIServiceProtocol {
                 return
             }
             do {
-                let obj = try JSONDecoder().decode( T.self, from: data!) as! T
+                guard let obj = try JSONDecoder().decode( T?.self, from: data!) else {
+                    print("failed to parse data")
+                    return
+                    
+                }
                 completion(obj)
             }
                 
