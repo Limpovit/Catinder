@@ -17,7 +17,7 @@ class CatCardViewController: UIViewController {
     
     
     
-    var catsImages = [UIImage]()
+    var catsImagesData = [Data]()
     var tabBar: MyTabBarController?
     let apiService = APIService()
     
@@ -42,8 +42,8 @@ class CatCardViewController: UIViewController {
             DispatchQueue.main.async {
                 guard let self = self else {return}
                 for  card in self.cardViews.subviews as! [CardView] {
-                
-                    card.catImageView.image = self.catsImages.removeFirst()
+                 guard let image = UIImage(data: self.catsImagesData.removeFirst()) else {return}
+                    card.catImageView.image = image
             }
         }
     })
@@ -70,7 +70,7 @@ class CatCardViewController: UIViewController {
         
         if sender.state == UIGestureRecognizer.State.ended {
             
-            if card.center.x < 75 && catsImages.count > 1 {
+            if card.center.x < 75 && catsImagesData.count > 1 {
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
                     card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                     card.alpha = 0
@@ -79,7 +79,7 @@ class CatCardViewController: UIViewController {
                 } )
                 return
                 
-            } else if card.center.x > cardViews.frame.width - 75  && catsImages.count > 1{
+            } else if card.center.x > cardViews.frame.width - 75  && catsImagesData.count > 1{
                 UIView.animate(withDuration: 0.3, delay: 0.1, animations: {
                     card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                     card.alpha = 0
@@ -116,8 +116,9 @@ class CatCardViewController: UIViewController {
     
     func resetCard(_ card: CardView) {        
         self.cardViews.sendSubviewToBack(card)
-        card.catImageView.image = self.catsImages.removeFirst()
-        if catsImages.count < 8 {
+        guard let image = UIImage(data: self.catsImagesData.removeFirst()) else {return}
+        card.catImageView.image = image
+        if catsImagesData.count < 8 {
             loadNextImages()
         }
         
@@ -126,17 +127,15 @@ class CatCardViewController: UIViewController {
         card.transform = CGAffineTransform.identity
         card.alpha = 1
         
-    }    
+    }
 
     
     func loadCatsImage(cats: [Cats]) {
         
         DispatchQueue.concurrentPerform(iterations: cats.count) { (index) in
             let catURL = URL(string: cats[index].url)!
-            if let data = try? Data(contentsOf: catURL) {
-                guard let image = UIImage(data: data) else {return}
-                catsImages.append(image)
-                print("image \(index) downlodaded")
+            if let data = try? Data(contentsOf: catURL) {               
+                catsImagesData.append(data)
             }
         }
         }
