@@ -31,7 +31,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="cat" id="z7I-Xv-PCc">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pawprint" id="z7I-Xv-PCc">
                                             <rect key="frame" x="16" y="0.0" width="93" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -472,8 +472,8 @@
     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="book" catalog="system" width="128" height="101"/>
-        <image name="cat" width="512" height="512"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="pawprint" width="512" height="512"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <image name="star" catalog="system" width="128" height="116"/>
     </resources>
