@@ -12,10 +12,14 @@ class BestiaryViewController: UITableViewController {
     
     var breedsArray = [Breed]()
     var selectedBreed: Breed?
-    var apiService = APIService()
+    var apiService: APIServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let _apiSercice: APIServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
+        
+        apiService = _apiSercice
         
         apiService.getData(query: "breeds") { (breedsArray: [Breed]) in
             self.breedsArray = breedsArray

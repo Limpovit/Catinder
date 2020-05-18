@@ -10,6 +10,9 @@
 		7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC55246D32AA008B1B9E /* DetailViewController.swift */; };
 		7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC59246D4D1C008B1B9E /* CardView.swift */; };
 		7B47CC5C246D5355008B1B9E /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B47CC5B246D5355008B1B9E /* CardView.xib */; };
+		7B48795D24717FCE0063BE4B /* BreedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48795C24717FCE0063BE4B /* BreedsTableViewController.swift */; };
+		7B48795F2471801D0063BE4B /* CategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B48795E2471801D0063BE4B /* CategoryTableViewController.swift */; };
+		7B487961247185AA0063BE4B /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B487960247185AA0063BE4B /* ServiceLocator.swift */; };
 		7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF749246AA9850026320D /* AppDelegate.swift */; };
 		7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF74B246AA9850026320D /* SceneDelegate.swift */; };
 		7B4DF751246AA9850026320D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF74F246AA9850026320D /* Main.storyboard */; };
@@ -31,6 +34,9 @@
 		7B47CC55246D32AA008B1B9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7B47CC59246D4D1C008B1B9E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7B47CC5B246D5355008B1B9E /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		7B48795C24717FCE0063BE4B /* BreedsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsTableViewController.swift; sourceTree = "<group>"; };
+		7B48795E2471801D0063BE4B /* CategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewController.swift; sourceTree = "<group>"; };
+		7B487960247185AA0063BE4B /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		7B4DF746246AA9850026320D /* Catinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4DF749246AA9850026320D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B4DF74B246AA9850026320D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				7B729B992470037900BD47FA /* UserViewController.swift */,
+				7B48795C24717FCE0063BE4B /* BreedsTableViewController.swift */,
+				7B48795E2471801D0063BE4B /* CategoryTableViewController.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			children = (
 				7B729B9E2470213200BD47FA /* ImagesService.swift */,
 				7B729BA0247022B600BD47FA /* APIService.swift */,
+				7B487960247185AA0063BE4B /* ServiceLocator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -234,6 +243,7 @@
 				7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */,
 				7B729B9A2470037900BD47FA /* UserViewController.swift in Sources */,
 				7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */,
+				7B48795F2471801D0063BE4B /* CategoryTableViewController.swift in Sources */,
 				7B729B98246FFAF100BD47FA /* MyTabBarController.swift in Sources */,
 				7B5D74C3246EEF6300011323 /* FavouritesCollectionViewCell.swift in Sources */,
 				7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */,
@@ -243,7 +253,9 @@
 				7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */,
 				7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */,
 				7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */,
+				7B48795D24717FCE0063BE4B /* BreedsTableViewController.swift in Sources */,
 				7BB1DA10246AF579002AAE4D /* FavoritesViewController.swift in Sources */,
+				7B487961247185AA0063BE4B /* ServiceLocator.swift in Sources */,
 				7BB1DA0C246AF478002AAE4D /* CatCardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,7 +13,7 @@ protocol  APIServiceProtocol {
     func getData<T: Decodable>(query: String, completion: @escaping (T) -> Void) -> (Void)
 }
 
-class APIService: APIServiceProtocol {
+class APIService: APIServiceProtocol {    
     func  getData<T: Decodable>(query: String, completion: @escaping (T) -> Void) -> (Void) {
         
         let getURL = "https://api.thecatapi.com/v1/" + query
