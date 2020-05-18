@@ -15,15 +15,18 @@ class CatCardViewController: UIViewController {
     
     
     
-    
+   
     var tabBar: MyTabBarController?
-    let apiService = APIService()
+    
     var imagesService: ImagesServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+    guard let _imagesService: ImagesServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
         
-        imagesService = ImagesService(apiService: apiService)
+        imagesService = _imagesService
+       
         self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
         firstLoad()
         tabBar = tabBarController as? MyTabBarController
