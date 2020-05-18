@@ -12,12 +12,14 @@ import Foundation
 protocol ImagesServiceProtocol {
     func getNextImageData() -> (Data)
     func loadImagesData(complition: @escaping () -> ()) -> ()
+    func loadBreedImageData (id: String, complition: @escaping (Data) -> ())
     var catImagesCount : Int {get}
 }
 
 class ImagesService: ImagesServiceProtocol {
     
     var catsImagesData = [Data]()
+    
     let apiService: APIServiceProtocol
     public var catImagesCount : Int {
         get { return catsImagesData.count
@@ -30,7 +32,7 @@ class ImagesService: ImagesServiceProtocol {
     
     
     func getNextImageData() -> (Data){
-        if catImagesCount < 8 {
+        if catImagesCount < 4 {
             loadImagesData {
                 print("loaded next kitties")
             }
@@ -51,5 +53,18 @@ class ImagesService: ImagesServiceProtocol {
             complition()
         })
     }
+    
+    func loadBreedImageData (id: String, complition: @escaping (Data) -> ())  {
+        var breedImageData = Data()
+        apiService.getData(query: "images/search?breed_id=\(id)", completion:  { (cats: [Cats]) in
+            
+            let catURL = URL(string: cats[0].url)!
+            if let data = try? Data(contentsOf: catURL) {
+                breedImageData = data
+            }
+            complition(breedImageData)
+        })
+    }
 }
+
 
