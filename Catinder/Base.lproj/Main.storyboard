@@ -573,7 +573,6 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="saveUser:" destination="mtC-aP-lGb" eventType="touchUpInside" id="AcH-Cq-fPR"/>
-                                                        <action selector="touchdown:" destination="mtC-aP-lGb" eventType="touchDown" id="bU2-8b-DZX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
