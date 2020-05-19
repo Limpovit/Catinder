@@ -82,7 +82,8 @@ class CatCardViewController: UIViewController {
                 card.center = CGPoint(x: 5 * xFromCenter, y: viewCenter.y * 2)
                 card.alpha = 0
             }, completion: { (finished: Bool) in
-                if isLike {self.tabBar?.addToFavourites(image: card.catImageView.image!)
+                if card.catImageView.image != nil && isLike {
+                    self.tabBar?.addToFavourites(image: card.catImageView.image!)
                 }
                 self.resetCard(card)
             } )
@@ -103,7 +104,9 @@ class CatCardViewController: UIViewController {
     func resetCard(_ card: CardView) {
         
         self.cardViews.sendSubviewToBack(card)
-        guard let image = UIImage(data: self.imagesService.getNextImageData()) else {return}
+        guard let image = UIImage(data: self.imagesService.getNextImageData()) else {
+            
+            return}
         card.catImageView.image = image
         card.center = self.cardViews.center
         card.emojiImageView.alpha = 0
