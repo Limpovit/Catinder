@@ -15,7 +15,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9WH-EY-FDB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BestiaryCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="BestiaryCell" textLabel="6OE-gj-SFg" imageView="z7I-Xv-PCc" rowHeight="93" style="IBUITableViewCellStyleDefault" id="dvU-NN-bD2" customClass="BestiaryCell" customModule="Catinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="93"/>
@@ -37,7 +37,6 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="breedImage" destination="z7I-Xv-PCc" id="Xja-VJ-UXd"/>
                                     <outlet property="breedName" destination="6OE-gj-SFg" id="7n0-Hz-SdH"/>
@@ -141,7 +140,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1K5-xC-kWg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-423" y="194"/>
+            <point key="canvasLocation" x="-378" y="194"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="Ab3-cp-C7F">
@@ -157,6 +156,11 @@
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
+                        <view key="backgroundView" contentMode="scaleToFill" id="2iu-xc-yIA">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="CollectionCell" id="VlZ-1A-ygQ" customClass="FavouritesCollectionViewCell" customModule="Catinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="179" height="185"/>
@@ -193,10 +197,19 @@
                         </connections>
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="pxc-Nd-4kY"/>
+                    <connections>
+                        <outlet property="backgroundView" destination="2iu-xc-yIA" id="fgc-Eh-HEU"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-bk-7rw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="t6I-DN-xXf">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <viewLayoutGuide key="safeArea" id="2Ja-yj-zKL"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="-378.39999999999998" y="1624.1379310344828"/>
+            <point key="canvasLocation" x="-378" y="1679"/>
         </scene>
         <!--Rate-->
         <scene sceneID="oTQ-Fj-1zw">
@@ -429,7 +442,7 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-423.1884057971015" y="-448.66071428571428"/>
+            <point key="canvasLocation" x="-378" y="-484"/>
         </scene>
         <!--User-->
         <scene sceneID="d7h-l1-XaM">
@@ -637,7 +650,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9f-T9-vBI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="932"/>
+            <point key="canvasLocation" x="334" y="965"/>
         </scene>
         <!--My Tab Bar Controller-->
         <scene sceneID="e55-YN-zt6">
@@ -699,7 +712,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJw-1o-HoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="944"/>
+            <point key="canvasLocation" x="1025" y="965"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

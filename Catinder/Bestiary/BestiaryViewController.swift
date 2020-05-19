@@ -10,13 +10,16 @@ import UIKit
 
 class BestiaryViewController: UITableViewController {
     
+    
     var breedsArray = [Breed]()
     var selectedBreed: Breed?
     var apiService: APIServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.backgroundColor = .lightGray
+        tableView.backgroundView = UIView()
+        self.tableView.backgroundView?.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
         guard let _apiSercice: APIServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
         
         apiService = _apiSercice
@@ -25,6 +28,7 @@ class BestiaryViewController: UITableViewController {
             self.breedsArray = breedsArray
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                
             }
         }
     }
@@ -53,6 +57,9 @@ class BestiaryViewController: UITableViewController {
             return  cell
         }
         return BestiaryCell()
+    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
 }
 
