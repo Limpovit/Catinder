@@ -37,6 +37,7 @@ class DetailViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 self.breedImage.image = image
+                             
             }
         }
         

@@ -43,4 +43,19 @@ class FavoritesViewController: UICollectionViewController {
         return UICollectionViewCell()
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let  imageView = UIImageView(image: favouriteImages[indexPath.row])
+        imageView.frame = self.view.frame       
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissImage(_:)))
+        imageView.addGestureRecognizer(tap)
+        self.view.addSubview(imageView)
+        
+    }
+    @objc func dismissImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+    }
+    
 }
