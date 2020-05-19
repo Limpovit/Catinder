@@ -13,10 +13,10 @@ class User: NSObject, NSCoding  {
     let name: String
     let sex: String
     let userId: String
-    let favouritesBreed: [String]
-    let favouritesCategory: [Int]
+    var favouritesBreed: Set<String>
+    var favouritesCategory: Set<Int>
     
-    init(name: String, userId: String, sex: String, favouritesBreed: [String], favouritesCategory: [Int]) {
+    init(name: String, userId: String, sex: String, favouritesBreed: Set<String>, favouritesCategory: Set<Int>) {
         self.name = name
         self.sex = sex
         self.userId = userId
@@ -36,8 +36,8 @@ class User: NSObject, NSCoding  {
         name = coder.decodeObject(forKey: "name") as? String ?? ""
         sex = coder.decodeObject(forKey: "sex") as? String ?? ""
         userId = coder.decodeObject(forKey: "userId") as? String ?? ""
-        favouritesBreed = coder.decodeObject(forKey: "favouritesBreed") as? [String] ?? [""]
-        favouritesCategory = coder.decodeObject(forKey: "favouritesCategory") as? [Int] ?? [Int]()
+        favouritesBreed = coder.decodeObject(forKey: "favouritesBreed") as? Set<String> ?? Set<String>()
+        favouritesCategory = coder.decodeObject(forKey: "favouritesCategory") as? Set<Int> ?? Set<Int>()
     }
     
 

@@ -10,76 +10,71 @@ import UIKit
 
 class CategoryTableViewController: UITableViewController {
     
-    var categories = [Category]()
-
+    var delegate: isAbleToReceiveData?
+    
+    var categories: [String : Int] = [:]
+    var categoriesName: [String] = []
+    var apiService: APIServiceProtocol!
+    var favourites = Set<Int>()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.reloadData()
+        print(favourites)
+        guard let _apiSercice: APIServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
+        apiService = _apiSercice
+        apiService.getData(query: "categories") { (categories: [Category]) in
+            for category in categories {
+                self.categories[category.name] = category.id
+                self.categoriesName.append(category.name)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
         
     }
-
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        delegate!.passCategoriesId(ids: favourites)
+    }
+    
     // MARK: - Table view data source
-
-
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return categories.count
     }
-
-   
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "category", for: indexPath)
-
-        cell.accessoryType = .checkmark
-        cell.textLabel?.text = "\(indexPath.row)"
+        
+        if favourites.contains(categories[categoriesName[indexPath.row]]!) {
+            cell.accessoryType = .checkmark
+        }
+        cell.textLabel?.text = "\(categoriesName[indexPath.row].capitalizingFirstLetter())"
         return cell
     }
-  
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath){
+            guard let id = categories[categoriesName[indexPath.row]] else {return}
+            if cell.accessoryType == .none {
+                cell.accessoryType = .checkmark
+                self.favourites.insert(id)
+                print("\(id)")
+            } else {
+                cell.accessoryType = .none
+                self.favourites.remove(id)
+            }
+        }
     }
-    */
+}
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

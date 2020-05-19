@@ -457,7 +457,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="024-boy-11" translatesAutoresizingMaskIntoConstraints="NO" id="m5a-L3-d8l">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Male" translatesAutoresizingMaskIntoConstraints="NO" id="m5a-L3-d8l">
                                                     <rect key="frame" x="16" y="11" width="135" height="120"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -497,7 +497,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="NdQ-Cb-mjz" kind="show" id="sUZ-6w-GvV"/>
+                                            <segue destination="NdQ-Cb-mjz" kind="show" identifier="favouritesBreeds" id="sUZ-6w-GvV"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="zeo-t2-pRp" style="IBUITableViewCellStyleDefault" id="5Zl-MY-mqM">
@@ -517,7 +517,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="n1i-sb-KPY" kind="show" id="1JS-PL-E0b"/>
+                                            <segue destination="n1i-sb-KPY" kind="show" identifier="favouritesCategory" id="1JS-PL-E0b"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yJe-F2-dH3">
@@ -555,12 +555,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lw-6S-F1m">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5lw-6S-F1m">
                                                     <rect key="frame" x="100" y="6" width="175" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Save"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" title="Save">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    </state>
                                                     <connections>
-                                                        <action selector="saveUser:" destination="mtC-aP-lGb" eventType="touchUpInside" id="LBc-nk-A3p"/>
+                                                        <action selector="saveUser:" destination="mtC-aP-lGb" eventType="touchUpInside" id="AcH-Cq-fPR"/>
+                                                        <action selector="touchdown:" destination="mtC-aP-lGb" eventType="touchDown" id="bU2-8b-DZX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -585,6 +591,8 @@
                     <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" id="Bvj-mk-oik" userLabel="User"/>
                     <connections>
                         <outlet property="nameLable" destination="OAp-0Y-v36" id="eAF-Kc-fyL"/>
+                        <outlet property="saveButton" destination="5lw-6S-F1m" id="2i4-Zw-5Sq"/>
+                        <outlet property="sexControl" destination="FwB-3T-iV5" id="d5R-j4-tPK"/>
                         <outlet property="userImageView" destination="m5a-L3-d8l" id="Yfx-rs-EYa"/>
                         <outlet property="userNameField" destination="rNB-H8-oBM" id="SpZ-Ca-8Nf"/>
                     </connections>
@@ -593,39 +601,31 @@
             </objects>
             <point key="canvasLocation" x="-378.39999999999998" y="964.76761619190415"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Breeds Table View Controller-->
         <scene sceneID="K70-p7-eBm">
             <objects>
-                <tableViewController id="NdQ-Cb-mjz" sceneMemberID="viewController">
+                <tableViewController id="NdQ-Cb-mjz" customClass="BreedsTableViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="iGO-i4-kNQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="category" textLabel="VDW-UV-6YB" imageView="vf9-Oy-vJI" style="IBUITableViewCellStyleDefault" id="RQD-KK-hI3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favouritesBreeds" textLabel="VDW-UV-6YB" style="IBUITableViewCellStyleDefault" id="RQD-KK-hI3" customClass="CheckmarkTableViewCell" customModule="Catinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RQD-KK-hI3" id="sAe-Xd-emr">
-                                    <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VDW-UV-6YB">
-                                            <rect key="frame" x="75" y="0.0" width="252" height="43.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pawprint" id="vf9-Oy-vJI">
-                                            <rect key="frame" x="16" y="0.0" width="44" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="title" destination="sAe-Xd-emr" id="I0X-J2-TXM"/>
-                                    <outlet property="titleLable" destination="VDW-UV-6YB" id="hSh-ZJ-hlp"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -660,16 +660,16 @@
             </objects>
             <point key="canvasLocation" x="-1201" y="194"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Category Table View Controller-->
         <scene sceneID="GyM-Le-uyt">
             <objects>
-                <tableViewController id="n1i-sb-KPY" sceneMemberID="viewController">
+                <tableViewController id="n1i-sb-KPY" customClass="CategoryTableViewController" customModule="Catinder" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OZf-p9-QzK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="breed" editingAccessoryType="checkmark" textLabel="3cP-wb-UrS" style="IBUITableViewCellStyleDefault" id="CSn-ir-p4K">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="category" editingAccessoryType="checkmark" textLabel="3cP-wb-UrS" style="IBUITableViewCellStyleDefault" id="CSn-ir-p4K" customClass="CheckmarkTableViewCell" customModule="Catinder" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CSn-ir-p4K" id="Gjf-Mg-5tD">
@@ -685,6 +685,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="titleLable" destination="3cP-wb-UrS" id="7hJ-rD-uLv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -696,12 +699,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KJw-1o-HoX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994" y="1213"/>
+            <point key="canvasLocation" x="1271" y="944"/>
         </scene>
     </scenes>
     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="024-boy-11" width="512" height="512"/>
+        <image name="Male" width="512" height="512"/>
         <image name="book" catalog="system" width="128" height="101"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="pawprint" width="512" height="512"/>

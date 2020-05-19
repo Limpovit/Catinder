@@ -158,9 +158,9 @@
 		7B729B9C247003BE00BD47FA /* User */ = {
 			isa = PBXGroup;
 			children = (
-				7B48795C24717FCE0063BE4B /* BreedsTableViewController.swift */,
-				7B48795E2471801D0063BE4B /* CategoryTableViewController.swift */,
 				7B4CC10B2472D92900BA6B42 /* UserTableViewController.swift */,
+				7B48795E2471801D0063BE4B /* CategoryTableViewController.swift */,
+				7B48795C24717FCE0063BE4B /* BreedsTableViewController.swift */,
 				7B4CC112247313C000BA6B42 /* CheckmarkTableViewCell.swift */,
 			);
 			path = User;

@@ -9,22 +9,22 @@
 import Foundation
 
 protocol UserServiceProtocol {
-    var users: [User]? {get set}
-    func getUser(key: Int) -> (User)
-    func getUsersList() -> ([User])
-    func saveUser() -> ()
+  
     var defaults: UserDefaults {get set}
     var user: User! {get set}
-}
-
-enum Keys: String {
-    case user
+    func saveCategories(categories: Set<Int>) -> ()
+    
 }
 
 class UserService: UserServiceProtocol {
+    
+    func saveCategories(categories: Set<Int>) {
+        user.favouritesCategory = categories
+    }
+    
     var defaults = UserDefaults.standard
     
-    var users: [User]?
+
     var user: User! {
                get {
                    guard let savedData = UserDefaults.standard.object(forKey: "user") as? Data, let decodedUser = try? NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(savedData) as? User else {return nil}
@@ -39,17 +39,6 @@ class UserService: UserServiceProtocol {
                 }
             }
         }
-    }
-    func getUser(key: Int) -> (User) {
-        return user
-    }
-    
-    func getUsersList() -> ([User]) {
-        return users!
-    }
-    
-    func saveUser() {
-       
     }
     
     
