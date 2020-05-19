@@ -58,8 +58,7 @@ class CatCardViewController: UIViewController {
         let point = sender.translation(in: cardViews)
         let xFromCenter = card.center.x - viewCenter.x
         let scale = min(80/abs(xFromCenter), 1)
-        let divisor = (view.frame.width / 2) / 0.61
-        print(xFromCenter, point)
+        let divisor = (view.frame.width / 2) / 0.61        
         card.center = CGPoint(x: viewCenter.x + point.x, y: viewCenter.y + point.y)
         
         card.transform = CGAffineTransform(rotationAngle: xFromCenter/divisor).scaledBy(x: scale, y: scale)

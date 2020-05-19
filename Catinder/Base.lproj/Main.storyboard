@@ -159,7 +159,32 @@
                         <view key="backgroundView" contentMode="scaleToFill" id="2iu-xc-yIA">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="028-kitty-22" translatesAutoresizingMaskIntoConstraints="NO" id="pXB-TQ-E6F">
+                                    <rect key="frame" x="67.5" y="146" width="240" height="164"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="164" id="Etv-3Q-VGb"/>
+                                        <constraint firstAttribute="width" constant="240" id="TYo-AA-fQ4"/>
+                                    </constraints>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woops,  we have empty space here.   Looks like you didn`t rate any kittens " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UaO-MX-ric">
+                                    <rect key="frame" x="21.5" y="318" width="332.5" height="125"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="332.5" id="MqH-oM-U5V"/>
+                                        <constraint firstAttribute="height" constant="125" id="yWK-8G-Rdw"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="UaO-MX-ric" secondAttribute="bottom" constant="224" id="1WB-PA-JE2"/>
+                                <constraint firstItem="UaO-MX-ric" firstAttribute="top" secondItem="pXB-TQ-E6F" secondAttribute="bottom" constant="8" id="6Nk-V0-q2Z"/>
+                                <constraint firstItem="UaO-MX-ric" firstAttribute="centerX" secondItem="2iu-xc-yIA" secondAttribute="centerX" id="GMP-FC-EH1"/>
+                                <constraint firstItem="pXB-TQ-E6F" firstAttribute="centerX" secondItem="2iu-xc-yIA" secondAttribute="centerX" id="o2g-Ma-DCg"/>
+                            </constraints>
                         </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="CollectionCell" id="VlZ-1A-ygQ" customClass="FavouritesCollectionViewCell" customModule="Catinder" customModuleProvider="target">
@@ -199,11 +224,13 @@
                     <tabBarItem key="tabBarItem" title="Favorites" image="star" catalog="system" id="pxc-Nd-4kY"/>
                     <connections>
                         <outlet property="backgroundView" destination="2iu-xc-yIA" id="fgc-Eh-HEU"/>
+                        <outlet property="emptyFavouritesImage" destination="pXB-TQ-E6F" id="by5-j7-Cad"/>
+                        <outlet property="emptyFavouritesLable" destination="UaO-MX-ric" id="nhI-7E-9Ln"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tqY-bk-7rw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-378" y="1679"/>
+            <point key="canvasLocation" x="-378.39999999999998" y="1678.1109445277364"/>
         </scene>
         <!--Rate-->
         <scene sceneID="oTQ-Fj-1zw">
@@ -710,6 +737,7 @@
     </scenes>
     <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
+        <image name="028-kitty-22" width="512" height="512"/>
         <image name="Male" width="512" height="512"/>
         <image name="book" catalog="system" width="128" height="101"/>
         <image name="heart" catalog="system" width="128" height="109"/>

@@ -10,6 +10,9 @@ import UIKit
 
 class FavoritesViewController: UICollectionViewController {
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var emptyFavouritesImage: UIImageView!
+    @IBOutlet weak var emptyFavouritesLable: UILabel!
+    
     
     var favouriteImages: [UIImage]!
     
@@ -20,11 +23,15 @@ class FavoritesViewController: UICollectionViewController {
         tabBar = tabBarController as! MyTabBarController
         backgroundView.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
         
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
        favouriteImages = tabBar?.getFavouritesImages()
+        if favouriteImages.count > 0 {
+            emptyFavouritesImage.alpha = 0
+            emptyFavouritesLable.alpha = 0
+        }
+
         collectionView.reloadData()
     }
 
@@ -45,7 +52,7 @@ class FavoritesViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let  imageView = UIImageView(image: favouriteImages[indexPath.row])
-        imageView.frame = self.view.frame       
+        imageView.frame = self.view.frame
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
         
