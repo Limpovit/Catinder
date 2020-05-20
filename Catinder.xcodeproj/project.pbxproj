@@ -10,6 +10,10 @@
 		7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC55246D32AA008B1B9E /* DetailViewController.swift */; };
 		7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B47CC59246D4D1C008B1B9E /* CardView.swift */; };
 		7B47CC5C246D5355008B1B9E /* CardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B47CC5B246D5355008B1B9E /* CardView.xib */; };
+		7B487961247185AA0063BE4B /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B487960247185AA0063BE4B /* ServiceLocator.swift */; };
+		7B4CC10C2472D92900BA6B42 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4CC10B2472D92900BA6B42 /* UserTableViewController.swift */; };
+		7B4CC10F2472F6C800BA6B42 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4CC10E2472F6C800BA6B42 /* UserService.swift */; };
+		7B4CC1112472F76B00BA6B42 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4CC1102472F76B00BA6B42 /* User.swift */; };
 		7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF749246AA9850026320D /* AppDelegate.swift */; };
 		7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B4DF74B246AA9850026320D /* SceneDelegate.swift */; };
 		7B4DF751246AA9850026320D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B4DF74F246AA9850026320D /* Main.storyboard */; };
@@ -19,7 +23,8 @@
 		7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B689DC3246C09CF00C84B05 /* Cats.swift */; };
 		7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B689DC6246C5D7400C84B05 /* BestiaryCell.swift */; };
 		7B729B98246FFAF100BD47FA /* MyTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B729B97246FFAF100BD47FA /* MyTabBarController.swift */; };
-		7B729B9A2470037900BD47FA /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B729B992470037900BD47FA /* UserViewController.swift */; };
+		7B729B9F2470213200BD47FA /* ImagesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B729B9E2470213200BD47FA /* ImagesService.swift */; };
+		7B729BA1247022B600BD47FA /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B729BA0247022B600BD47FA /* APIService.swift */; };
 		7BB1DA0C246AF478002AAE4D /* CatCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */; };
 		7BB1DA0E246AF52E002AAE4D /* BestiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DA0D246AF52E002AAE4D /* BestiaryViewController.swift */; };
 		7BB1DA10246AF579002AAE4D /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */; };
@@ -29,6 +34,10 @@
 		7B47CC55246D32AA008B1B9E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7B47CC59246D4D1C008B1B9E /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		7B47CC5B246D5355008B1B9E /* CardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CardView.xib; sourceTree = "<group>"; };
+		7B487960247185AA0063BE4B /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		7B4CC10B2472D92900BA6B42 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		7B4CC10E2472F6C800BA6B42 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		7B4CC1102472F76B00BA6B42 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7B4DF746246AA9850026320D /* Catinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Catinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B4DF749246AA9850026320D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B4DF74B246AA9850026320D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,7 +49,8 @@
 		7B689DC3246C09CF00C84B05 /* Cats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cats.swift; sourceTree = "<group>"; };
 		7B689DC6246C5D7400C84B05 /* BestiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestiaryCell.swift; sourceTree = "<group>"; };
 		7B729B97246FFAF100BD47FA /* MyTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarController.swift; sourceTree = "<group>"; };
-		7B729B992470037900BD47FA /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		7B729B9E2470213200BD47FA /* ImagesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesService.swift; sourceTree = "<group>"; };
+		7B729BA0247022B600BD47FA /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		7BB1DA0B246AF478002AAE4D /* CatCardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCardViewController.swift; sourceTree = "<group>"; };
 		7BB1DA0D246AF52E002AAE4D /* BestiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestiaryViewController.swift; sourceTree = "<group>"; };
 		7BB1DA0F246AF579002AAE4D /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
@@ -60,8 +70,9 @@
 		7B47CC57246D3AA2008B1B9E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7B689DC3246C09CF00C84B05 /* Cats.swift */,
 				7B729B97246FFAF100BD47FA /* MyTabBarController.swift */,
+				7B689DC3246C09CF00C84B05 /* Cats.swift */,
+				7B4CC1102472F76B00BA6B42 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +105,7 @@
 		7B4DF748246AA9850026320D /* Catinder */ = {
 			isa = PBXGroup;
 			children = (
+				7B729B9D247020D500BD47FA /* Services */,
 				7B47CC58246D3ADB008B1B9E /* App */,
 				7B729B9B247003A000BD47FA /* CatCard */,
 				7B689DC5246C5D3300C84B05 /* Bestiary */,
@@ -140,9 +152,20 @@
 		7B729B9C247003BE00BD47FA /* User */ = {
 			isa = PBXGroup;
 			children = (
-				7B729B992470037900BD47FA /* UserViewController.swift */,
+				7B4CC10B2472D92900BA6B42 /* UserTableViewController.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		7B729B9D247020D500BD47FA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7B729B9E2470213200BD47FA /* ImagesService.swift */,
+				7B729BA0247022B600BD47FA /* APIService.swift */,
+				7B487960247185AA0063BE4B /* ServiceLocator.swift */,
+				7B4CC10E2472F6C800BA6B42 /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,17 +241,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				7B47CC56246D32AA008B1B9E /* DetailViewController.swift in Sources */,
-				7B729B9A2470037900BD47FA /* UserViewController.swift in Sources */,
 				7B47CC5A246D4D1C008B1B9E /* CardView.swift in Sources */,
+				7B4CC10F2472F6C800BA6B42 /* UserService.swift in Sources */,
 				7B729B98246FFAF100BD47FA /* MyTabBarController.swift in Sources */,
 				7B5D74C3246EEF6300011323 /* FavouritesCollectionViewCell.swift in Sources */,
 				7B689DC7246C5D7400C84B05 /* BestiaryCell.swift in Sources */,
 				7BB1DA0E246AF52E002AAE4D /* BestiaryViewController.swift in Sources */,
+				7B729B9F2470213200BD47FA /* ImagesService.swift in Sources */,
+				7B729BA1247022B600BD47FA /* APIService.swift in Sources */,
 				7B689DC4246C09CF00C84B05 /* Cats.swift in Sources */,
 				7B4DF74A246AA9850026320D /* AppDelegate.swift in Sources */,
 				7B4DF74C246AA9850026320D /* SceneDelegate.swift in Sources */,
 				7BB1DA10246AF579002AAE4D /* FavoritesViewController.swift in Sources */,
+				7B4CC10C2472D92900BA6B42 /* UserTableViewController.swift in Sources */,
+				7B487961247185AA0063BE4B /* ServiceLocator.swift in Sources */,
 				7BB1DA0C246AF478002AAE4D /* CatCardViewController.swift in Sources */,
+				7B4CC1112472F76B00BA6B42 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

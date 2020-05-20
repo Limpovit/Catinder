@@ -9,7 +9,11 @@
 import UIKit
 
 class FavoritesViewController: UICollectionViewController {
-
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var emptyFavouritesImage: UIImageView!
+    @IBOutlet weak var emptyFavouritesLable: UILabel!
+    
+    
     var favouriteImages: [UIImage]!
     
     var tabBar: MyTabBarController?
@@ -17,13 +21,17 @@ class FavoritesViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar = tabBarController as! MyTabBarController
-        
-        
+        backgroundView.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
        favouriteImages = tabBar?.getFavouritesImages()
+        if favouriteImages.count > 0 {
+            emptyFavouritesImage.alpha = 0
+            emptyFavouritesLable.alpha = 0
+        }
+
         collectionView.reloadData()
     }
 
@@ -42,4 +50,25 @@ class FavoritesViewController: UICollectionViewController {
         return UICollectionViewCell()
     }
 
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let fader = UIView(frame: self.view.bounds)
+        fader.setGradient([ #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1).cgColor,  #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1).cgColor])
+       
+        
+        let  imageView = UIImageView(image: favouriteImages[indexPath.row])
+        imageView.frame = self.view.frame
+        imageView.contentMode = .scaleAspectFit
+        imageView.isUserInteractionEnabled = true
+        self.view.addSubview(fader)
+        fader.alpha = 0.7
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissImage(_:)))
+        imageView.addGestureRecognizer(tap)
+        self.view.addSubview(imageView)
+        
+    }
+    @objc func dismissImage(_ sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+        view.subviews.last?.removeFromSuperview()
+    }
+    
 }

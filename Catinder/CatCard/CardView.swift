@@ -25,6 +25,8 @@ class CardView: UIView {
         commonInit()
         
     }
+   
+
     
     private func commonInit() {
         Bundle.main.loadNibNamed("CardView" , owner: self, options: nil)

@@ -11,18 +11,26 @@ import UIKit
 class MyTabBarController: UITabBarController {
     
     var favouritesImagesArray = [UIImage]()
-    
+    var userQuery = "/images/search"
     override func viewDidLoad() {
         super.viewDidLoad()
 
       
     }
+    
+    func  changeUserQuery(to query: String) -> () {
+        userQuery = query
+    }
+    
     func addToFavourites(image: UIImage) {
         favouritesImagesArray.append(image)
     }
     
- func getFavouritesImages() -> [UIImage] {
+  func getFavouritesImages() -> [UIImage] {
         return favouritesImagesArray
+    }
+    func getUserQuery() -> String{
+        return userQuery
     }
     
 }

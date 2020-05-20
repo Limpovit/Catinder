@@ -10,57 +10,34 @@ import UIKit
 
 class BestiaryViewController: UITableViewController {
     
+    
     var breedsArray = [Breed]()
     var selectedBreed: Breed?
+    var apiService: APIServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        getBreedsArray { [weak self] result in
+        self.tableView.backgroundColor = .lightGray
+        tableView.backgroundView = UIView()
+        self.tableView.backgroundView?.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
+        guard let _apiSercice: APIServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
+        
+        apiService = _apiSercice
+        
+        apiService.getData(query: "breeds") { (breedsArray: [Breed]) in
+            self.breedsArray = breedsArray
             DispatchQueue.main.async {
-                switch result {
-                case .success(let breeds):
-                    self!.breedsArray = breeds!
-                    self?.tableView.reloadData()
+                self.tableView.reloadData()
                 
-                case .failure(let error):
-                    print(error)
-                }
             }
         }
     }
     
-    func getBreedsArray(completion: @escaping (Result<[Breed]?, Error>) -> Void) {
-        
-        guard let url = URL(string: "https://api.thecatapi.com/v1/breeds") else {return}
-        
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            do {
-                let obj = try JSONDecoder().decode( [Breed].self, from: data!)
-                completion(.success(obj))
-            } catch let error {
-                completion(.failure(error))
-            }
-        }.resume()
-    }
-    
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         selectedBreed = breedsArray[indexPath.row]
-//              performSegue(withIdentifier: "test", sender: self)
         return indexPath
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
-//        selectedBreed = breedsArray[indexPath.row]
-//        performSegue(withIdentifier: "test", sender: self)
-        print("tap")
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "test" {
             let vc = segue.destination as? DetailViewController
@@ -68,8 +45,6 @@ class BestiaryViewController: UITableViewController {
             
         }
     }
-    
-
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -82,6 +57,9 @@ class BestiaryViewController: UITableViewController {
             return  cell
         }
         return BestiaryCell()
+    }
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
     }
 }
 

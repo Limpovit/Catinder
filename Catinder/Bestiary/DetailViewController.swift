@@ -9,70 +9,38 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
+    
     @IBOutlet weak var breedImage: UIImageView!
-    @IBOutlet weak var breedName: UILabel!
+    @IBOutlet weak var navItem: UINavigationItem!
+    
     @IBOutlet weak var breedDescription: UITextView!
     
-  
-    var passedBreed: Breed?
-     
+    
+    var passedBreed: Breed!
+    var imagesService: ImagesServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-self.view.setGradient([ #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1).cgColor,  #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1).cgColor])
-        breedName.text = passedBreed?.name
-        breedDescription.text = passedBreed?.breedDescription
-
-        getCatImage(id: passedBreed!.id) { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let cats):
-                    self?.breedImage.load(by: cats![0].url)
-
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
-  }
-    
-    func getCatImage(id: String, completion: @escaping (Result<[Cats]?, Error>) -> Void) {
-        let getURL = "https://api.thecatapi.com/v1/images/search?breed_id=\(id)"
-        guard let url = URL(string: getURL) else {return}
+        navItem.title = passedBreed.name
+        self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
+        guard let _imagesSercice: ImagesServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
         
-        URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-            do {
-                let obj = try JSONDecoder().decode( [Cats].self, from: data!)
-                completion(.success(obj))
-            }
+        imagesService = _imagesSercice
+        
+
+        breedDescription.text = passedBreed.breedDescription
+        
+        
+        imagesService.loadBreedImageData(id: passedBreed.id) { (data) in
+            guard let image = UIImage(data: data) else {print ("error")
+                return}
+            DispatchQueue.main.async {
                 
-            catch let error {
-                completion(.failure(error))
-            }
-            
-        }.resume()
-    }
-
-
-}
-extension UIImageView {
-    func load(by stringURL: String) {
-        let url = URL(string: stringURL)
-        DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url!) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self.image = image
-                        
-                    }
-                }
+                self.breedImage.image = image
+                             
             }
         }
+        
     }
+    
 }
-
