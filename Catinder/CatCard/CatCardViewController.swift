@@ -27,12 +27,19 @@ class CatCardViewController: UIViewController {
         
         imagesService = _imagesService
        
-        self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])
-        firstLoad()
+        self.view.setGradient([ #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1).cgColor,  #colorLiteral(red: 0.721568644, green: 0.8862745166, blue: 0.5921568871, alpha: 1).cgColor])        
         tabBar = tabBarController as? MyTabBarController                
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        for card in cardViews.subviews as! [CardView]{
+            card.catImageView.image = nil
+        }
+        firstLoad()
+    }
     
     
     
@@ -70,7 +77,7 @@ class CatCardViewController: UIViewController {
         
         if sender.state == UIGestureRecognizer.State.ended {
             
-            if abs(xFromCenter) < 130 || imagesService.catImagesCount < 2 {
+            if abs(xFromCenter) < 130 || imagesService.catImagesCount < 2 || card.catImageView.image == nil {
                 returnCard(card)
                 return
             }
@@ -79,7 +86,7 @@ class CatCardViewController: UIViewController {
                 card.center = CGPoint(x: 5 * xFromCenter, y: viewCenter.y * 2)
                 card.alpha = 0
             }, completion: { (finished: Bool) in
-                if card.catImageView.image != nil && isLike {
+                if  isLike {
                     self.tabBar?.addToFavourites(image: card.catImageView.image!)
                 }
                 self.resetCard(card)

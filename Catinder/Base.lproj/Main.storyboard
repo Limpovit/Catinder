@@ -635,6 +635,7 @@
                     <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" id="Bvj-mk-oik" userLabel="User"/>
                     <connections>
                         <outlet property="castomizeSearch" destination="lHc-Wy-3DE" id="dAD-Y0-oAc"/>
+                        <outlet property="categoryPeaker" destination="aQP-Mv-ENe" id="JZp-nP-sXP"/>
                         <outlet property="nameLable" destination="OAp-0Y-v36" id="eAF-Kc-fyL"/>
                         <outlet property="saveButton" destination="5lw-6S-F1m" id="2i4-Zw-5Sq"/>
                         <outlet property="sexControl" destination="FwB-3T-iV5" id="d5R-j4-tPK"/>

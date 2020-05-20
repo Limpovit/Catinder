@@ -14,11 +14,10 @@ class UserTableViewController: UITableViewController {
     @IBOutlet weak var nameLable: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameField: UITextField!
-    @IBOutlet weak var searchControl: UISegmentedControl!
-    @IBOutlet weak var searchPeak: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var castomizeSearch: UISwitch!
-   
+    @IBOutlet weak var categoryPeaker: UIPickerView!
+    
     
     
     var categories: [String : Int] = [:]
@@ -26,6 +25,7 @@ class UserTableViewController: UITableViewController {
     
     var apiService: APIServiceProtocol!
     var userService: UserServiceProtocol!
+    var imageService: ImagesServiceProtocol!
     
     var selectedCategory = ""
     var sex = "Male"
@@ -49,6 +49,10 @@ class UserTableViewController: UITableViewController {
         
         guard let _apiSercice: APIServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
         apiService = _apiSercice
+        
+        guard let _imageSercice: ImagesServiceProtocol = ServiceLocator.shared.getService() else {assertionFailure(); return}
+        imageService = _imageSercice
+        
     }
     
     func getCategories(){
@@ -58,7 +62,7 @@ class UserTableViewController: UITableViewController {
                 self.categoriesName.append(category.name)
             }
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.categoryPeaker.reloadAllComponents()
             }
         }
     }
@@ -102,7 +106,7 @@ class UserTableViewController: UITableViewController {
                               userId: userNameField.text!,
                               sex: self.sex, selectedCategory: self.selectedCategory)
         userService.user = userObject
-        print(userObject.userQuery)
+        imageService.removeImages()
     }
     
     func configureTapGesture() {
@@ -161,7 +165,7 @@ extension UserTableViewController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-                selectedCategory = String(categories[categoriesName[row]]!)
+                selectedCategory = String(categories[categoriesName[row]]!)       
     }
 
 }

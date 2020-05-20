@@ -13,15 +13,18 @@ protocol ImagesServiceProtocol {
     func getNextImageData() -> (Data)
     func loadImagesData(complition: @escaping () -> ()) -> ()
     func loadBreedImageData (id: String, complition: @escaping (Data) -> ())
+    func removeImages() -> ()
     var catImagesCount : Int {get}
 }
 
 class ImagesService: ImagesServiceProtocol {
+
+    
     
     var catsImagesData = [Data]()
     
     let apiService: APIServiceProtocol
-    let userService: UserService
+    let userService: UserServiceProtocol
     public var catImagesCount : Int {
         get { return catsImagesData.count
         }
@@ -31,7 +34,9 @@ class ImagesService: ImagesServiceProtocol {
         self.apiService = apiService
         self.userService = userService
     }
-    
+    func removeImages() {
+        catsImagesData.removeAll()
+    }
     
     func getNextImageData() -> (Data){
         if catImagesCount < 3 {
