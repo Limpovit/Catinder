@@ -35,7 +35,7 @@ class ImagesService: ImagesServiceProtocol {
         self.userService = userService
     }
     func removeImages() {
-        if catsImagesData.isEmpty {
+        if !catsImagesData.isEmpty {
             catsImagesData.removeAll()
             
         }
