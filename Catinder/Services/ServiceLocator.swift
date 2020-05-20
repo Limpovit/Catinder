@@ -34,11 +34,11 @@ final class ServiceLocator {
     
     private init() {
         let apiService = APIService()
-        let imageService = ImagesService(apiService: apiService)
         let userService = UserService()
+        let imageService = ImagesService(apiService: apiService, userService: userService)
         addService(service: apiService as APIServiceProtocol)
-        addService(service: imageService as ImagesServiceProtocol)
         addService(service: userService as UserServiceProtocol)
+        addService(service: imageService as ImagesServiceProtocol)
     }
     
 }

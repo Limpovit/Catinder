@@ -51,11 +51,16 @@ class FavoritesViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let fader = UIView(frame: self.view.bounds)
+        fader.setGradient([ #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1).cgColor,  #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1).cgColor])
+       
+        
         let  imageView = UIImageView(image: favouriteImages[indexPath.row])
         imageView.frame = self.view.frame
         imageView.contentMode = .scaleAspectFit
         imageView.isUserInteractionEnabled = true
-        
+        self.view.addSubview(fader)
+        fader.alpha = 0.7
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissImage(_:)))
         imageView.addGestureRecognizer(tap)
         self.view.addSubview(imageView)
@@ -63,6 +68,7 @@ class FavoritesViewController: UICollectionViewController {
     }
     @objc func dismissImage(_ sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
+        view.subviews.last?.removeFromSuperview()
     }
     
 }

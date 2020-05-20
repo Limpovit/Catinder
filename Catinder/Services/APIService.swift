@@ -14,7 +14,7 @@ protocol  APIServiceProtocol {
 }
 
 class APIService: APIServiceProtocol {    
-    func  getData<T: Decodable>(query: String, completion: @escaping (T) -> Void) -> (Void) {
+    func  getData<T: Decodable>(query: String = "images/search?limit=10", completion: @escaping (T) -> Void) -> (Void) {
         
         let getURL = "https://api.thecatapi.com/v1/" + query
         guard let url = URL(string: getURL) else {return}

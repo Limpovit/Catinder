@@ -11,16 +11,12 @@ import Foundation
 protocol UserServiceProtocol {
   
     var defaults: UserDefaults {get set}
-    var user: User! {get set}
-    func saveCategories(categories: Set<Int>) -> ()
+    var user: User! {get set}   
     
 }
 
 class UserService: UserServiceProtocol {
     
-    func saveCategories(categories: Set<Int>) {
-        user.favouritesCategory = categories
-    }
     
     var defaults = UserDefaults.standard
     

@@ -21,18 +21,20 @@ class ImagesService: ImagesServiceProtocol {
     var catsImagesData = [Data]()
     
     let apiService: APIServiceProtocol
+    let userService: UserService
     public var catImagesCount : Int {
         get { return catsImagesData.count
         }
     }
     
-    init(apiService: APIServiceProtocol) {
+    init(apiService: APIServiceProtocol, userService: UserService) {
         self.apiService = apiService
+        self.userService = userService
     }
     
     
     func getNextImageData() -> (Data){
-        if catImagesCount < 4 {
+        if catImagesCount < 3 {
             loadImagesData {
                 print("loaded next kitties")
             }
@@ -41,8 +43,8 @@ class ImagesService: ImagesServiceProtocol {
     }
     
     func loadImagesData(complition: @escaping () -> ()) {
-        
-        apiService.getData(query: "images/search?limit=10", completion: { [weak self] (cats: [Cats]) in
+        print(userService.user.userQuery)
+        apiService.getData(query: userService.user.userQuery, completion: { [weak self] (cats: [Cats]) in
             
             DispatchQueue.concurrentPerform(iterations: cats.count) { (index) in
                 let catURL = URL(string: cats[index].url)!
