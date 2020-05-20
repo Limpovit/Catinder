@@ -15,7 +15,7 @@ class UserTableViewController: UITableViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var userNameField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var castomizeSearch: UISwitch!
+    @IBOutlet weak var customizeSearch: UISwitch!
     @IBOutlet weak var categoryPeaker: UIPickerView!
     
     
@@ -78,7 +78,7 @@ class UserTableViewController: UITableViewController {
     }
     
     @IBAction func castomize(_ sender: UISwitch) {
-        if !castomizeSearch.isOn {
+        if !customizeSearch.isOn {
             self.selectedCategory = ""
             
         }
@@ -124,10 +124,10 @@ class UserTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView,
                             heightForRowAt indexPath: IndexPath) -> CGFloat {
 
-        if !castomizeSearch.isOn && (indexPath.section == 1 ){
+        if !customizeSearch.isOn && (indexPath.section == 1 ){
             return 0
         }
-        if castomizeSearch.isOn && (indexPath.section == 1 ){
+        if customizeSearch.isOn && (indexPath.section == 1 ){
             return 200
         }
         if indexPath.section == 0 && indexPath.row == 0 {

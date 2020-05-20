@@ -28,10 +28,10 @@
                                             <rect key="frame" x="124" y="0.0" width="216" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" image="pawprint" id="z7I-Xv-PCc">
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" image="pawprint" id="z7I-Xv-PCc">
                                             <rect key="frame" x="16" y="0.0" width="93" height="93"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </imageView>
@@ -64,8 +64,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kld-RC-XII">
-                                <rect key="frame" x="0.0" y="44" width="414" height="574"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kld-RC-XII">
+                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="kB1-DH-LN2">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
@@ -77,13 +77,12 @@
                                                     <constraint firstAttribute="width" constant="375" id="mkP-DM-p1g"/>
                                                 </constraints>
                                             </imageView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-rj-VO4">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur c" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aEj-rj-VO4">
                                                 <rect key="frame" x="0.0" y="278" width="375" height="317"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="317" id="g8E-a3-bId"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -101,6 +100,7 @@
                                     <constraint firstItem="kB1-DH-LN2" firstAttribute="trailing" secondItem="PpU-Ns-2Vj" secondAttribute="trailing" id="Czd-Mi-I5k"/>
                                     <constraint firstAttribute="bottom" secondItem="kB1-DH-LN2" secondAttribute="bottom" id="DPI-YK-E2w"/>
                                     <constraint firstItem="kB1-DH-LN2" firstAttribute="leading" secondItem="PpU-Ns-2Vj" secondAttribute="leading" id="H58-el-kWX"/>
+                                    <constraint firstAttribute="trailing" secondItem="kB1-DH-LN2" secondAttribute="trailing" id="Xm4-fN-Kmv"/>
                                     <constraint firstItem="kB1-DH-LN2" firstAttribute="top" secondItem="kld-RC-XII" secondAttribute="top" id="aQS-uJ-M6M"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="aQk-S1-p1a"/>
@@ -109,10 +109,14 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="kld-RC-XII" firstAttribute="top" secondItem="KTd-Y0-ex8" secondAttribute="top" id="F5z-mC-6bU"/>
+                            <constraint firstItem="kld-RC-XII" firstAttribute="leading" secondItem="KTd-Y0-ex8" secondAttribute="leading" id="G63-sc-e75"/>
                             <constraint firstItem="kld-RC-XII" firstAttribute="top" secondItem="KTd-Y0-ex8" secondAttribute="top" id="O9I-bg-H8b"/>
                             <constraint firstItem="kld-RC-XII" firstAttribute="leading" secondItem="KTd-Y0-ex8" secondAttribute="leading" id="cuR-o7-4SK"/>
                             <constraint firstItem="kld-RC-XII" firstAttribute="trailing" secondItem="KTd-Y0-ex8" secondAttribute="trailing" id="dFz-ff-1Eq"/>
-                            <constraint firstItem="kld-RC-XII" firstAttribute="bottom" secondItem="KTd-Y0-ex8" secondAttribute="bottom" id="eao-S1-XFP"/>
+                            <constraint firstItem="kld-RC-XII" firstAttribute="bottom" secondItem="KTd-Y0-ex8" secondAttribute="bottom" id="lan-u6-Ahc"/>
+                            <constraint firstItem="kld-RC-XII" firstAttribute="centerX" secondItem="WGr-2o-uTQ" secondAttribute="centerX" id="s9W-lR-iC5"/>
+                            <constraint firstItem="kld-RC-XII" firstAttribute="trailing" secondItem="KTd-Y0-ex8" secondAttribute="trailing" id="shK-Rp-0mZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KTd-Y0-ex8"/>
                     </view>
@@ -135,6 +139,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="KtQ-Tl-e7Q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="textShadowColor" cocoaTouchSystemColor="darkTextColor"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="hi6-Jl-c7F" kind="relationship" relationship="rootViewController" id="sic-Xx-96W"/>
@@ -558,7 +566,7 @@
                                                         <action selector="castomize:" destination="mtC-aP-lGb" eventType="valueChanged" id="nUk-bR-doK"/>
                                                     </connections>
                                                 </switch>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Castomize search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-G5-9wy">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customize search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wl-G5-9wy">
                                                     <rect key="frame" x="16" y="11" width="137" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -634,8 +642,8 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" title="User" image="person" catalog="system" id="Bvj-mk-oik" userLabel="User"/>
                     <connections>
-                        <outlet property="castomizeSearch" destination="lHc-Wy-3DE" id="dAD-Y0-oAc"/>
                         <outlet property="categoryPeaker" destination="aQP-Mv-ENe" id="JZp-nP-sXP"/>
+                        <outlet property="customizeSearch" destination="lHc-Wy-3DE" id="dAD-Y0-oAc"/>
                         <outlet property="nameLable" destination="OAp-0Y-v36" id="eAF-Kc-fyL"/>
                         <outlet property="saveButton" destination="5lw-6S-F1m" id="2i4-Zw-5Sq"/>
                         <outlet property="sexControl" destination="FwB-3T-iV5" id="d5R-j4-tPK"/>
